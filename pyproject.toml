@@ -5,7 +5,14 @@ description = "A modern Python project forge with pre-configured tooling and CI/
 authors = [{ name = "Sunil Ghimire", email = "info@sunilghimire.com.np" }]
 readme = "README.rst"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pytest>=8.4.0",
+]
 
 [project.urls]
 homepage = "https://github.com/ghimiresunil/PyFoundry.git"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.0",
+]
