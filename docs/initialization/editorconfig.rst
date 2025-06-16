@@ -39,33 +39,44 @@ Create ``.editorconfig`` with these settings:
 
 .. code-block:: ini
 
-    # Top-most configuration file (stops searching parent dirs)
+    # EditorConfig helps developers define and maintain consistent
+    # coding styles between different editors and IDEs
+    # https://editorconfig.org
+
+    # top-most EditorConfig file
     root = true
 
-    # Default rules for all files
+    # Unix-style newlines with a newline ending every file
     [*]
     indent_style = space
     indent_size = 4
-    end_of_line = lf        # Unix-style
-    charset = utf-8         # Universal encoding
+    end_of_line = lf
+    charset = utf-8
     trim_trailing_whitespace = true
     insert_final_newline = true
 
-    # Python-specific rules
+    # Set default charset
+    # 4 space indentation
     [*.py]
+    indent_size = 4
     max_line_length = 88
 
-    # Configuration files
+    # Indendation for json, yml, yaml, and toml
     [*.{json,yml,yaml,toml}]
-    indent_size = 2         # Standard for config formats
+    indent_size = 2
 
-    # Documentation exceptions
+    # Documentation
     [*.rst]
-    trim_trailing_whitespace = false  # Preserves RST formatting
+    trim_trailing_whitespace = false
 
-    # Makefile requirements
+    # Markdown files
+    [*.md]
+    trim_trailing_whitespace = false
+
+    # Tab indentation (no size specified)
     [Makefile]
-    indent_style = tab      # Mandatory for makefiles
+    indent_style = tab
+
 
 Implementation Notes
 --------------------
