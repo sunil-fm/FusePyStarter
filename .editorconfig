@@ -26,7 +26,11 @@ indent_size = 2
 
 # Documentation
 [*.rst]
-trim_trailing_whitespace = false  # Important for reStructuredText
+trim_trailing_whitespace = false
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
 
 # Tab indentation (no size specified)
 [Makefile]
