@@ -1,7 +1,11 @@
 [project]
-name = "pyforge"
+name = "PyFoundry"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "A modern Python project forge with pre-configured tooling and CI/CD."
+authors = [{ name = "Sunil Ghimire", email = "info@sunilghimire.com.np" }]
+readme = "README.rst"
 requires-python = ">=3.12"
 dependencies = []
+
+[project.urls]
+homepage = "https://github.com/ghimiresunil/PyFoundry.git"
