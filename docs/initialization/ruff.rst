@@ -9,6 +9,7 @@ Linter
 ------
 
 Linter is a tool that analyses our source code to find problems and help enforce code quality and best practices by detecting issues before runtime. It finds problems such as:
+
 - Syntax errors
 - Style guide violations
 - Unused variables/imports
@@ -19,6 +20,7 @@ Examples of Linters: flake8, ruff, pylint, estline (JavaScript/TypeScript), goli
 Incorrect Python Code (Unformatted + Bad Style)
 -----------------------------------------------
 .. code-block:: python
+
     import sys,os
 
 
@@ -33,31 +35,34 @@ Incorrect Python Code (Unformatted + Bad Style)
 
 What is wrong?
 --------------
-Formatting:
-- Inconsistent indentation
-- Extra spaces around parameters
-- Bad spacing in return statement
 
-Import style:
-- import sys, os violates PEP8 (imports should be separate lines)
+- Formatting:
+    - Inconsistent indentation
+    - Extra spaces around parameters
+    - Bad spacing in return statement
 
-Indentation:
-- print in add() is poorly indented
+- Import style:
+    - import sys, os violates PEP8 (imports should be separate lines)
 
-Function spacing:
-- Extra spaces around function names and arguments
+- Indentation:
+    - print in add() is poorly indented
 
-Output formatting:
-- Spaces inside print values are inconsistent
+- Function spacing:
+    - Extra spaces around function names and arguments
+
+- Output formatting:
+    - Spaces inside print values are inconsistent
 
 Run:
 ----
 .. code-block:: bash
+
     ruff bad_code.py
 
 Output:
 -------
 .. code-block:: bash
+
     F401: 'sys' imported but unused
     E231: Missing whitespace after ','
     E701: Multiple statements on one line (colon)
