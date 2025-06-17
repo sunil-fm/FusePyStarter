@@ -17,7 +17,6 @@ insert_final_newline = false
 # Set default charset
 # 4 space indentation
 [*.py]
-indent_size = 4
 max_line_length = 88
 
 # Indendation for json, yml, yaml, and toml
@@ -26,10 +25,13 @@ indent_size = 2
 
 # Documentation
 [*.rst]
-trim_trailing_whitespace = false  # Important for reStructuredText
+trim_trailing_whitespace = false
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
 
 # Tab indentation (no size specified)
 [Makefile]
 indent_style = tab
-
 
