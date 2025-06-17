@@ -53,7 +53,7 @@ Create ``.editorconfig`` with these settings:
     end_of_line = lf
     charset = utf-8
     trim_trailing_whitespace = true
-    insert_final_newline = true
+    insert_final_newline = false
 
     # Set default charset
     # 4 space indentation
