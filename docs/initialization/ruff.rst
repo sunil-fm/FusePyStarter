@@ -72,11 +72,6 @@ Output:
 
     F401: 'sys' imported but unused
     E401: Multiple imports on one line
-    
-Note: to get the detailed check, you can use flake8.
-
-.. code-block:: bash
-
     E231: Missing whitespace after ',' '('
     E271 multiple spaces after keyword, operator
 
@@ -174,7 +169,7 @@ What ruff fixed:
 
 
 Ruff Usage in a Project
---------------
+------------------------
 
 Run the below commands as per the need to check, fix or format the code.
 
