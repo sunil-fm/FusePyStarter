@@ -170,3 +170,30 @@ What ruff fixed:
 ****************
 
 - Unnecessary imports also got removed
+
+
+
+Ruff Usage in a Project
+--------------
+
+Run the below commands as per the need to check, fix or format the code.
+
+.. code-block:: bash
+
+    # Check for issues
+    ruff check bad_code.py
+
+    # Format the code
+    ruff format bad_code.py
+
+    # Fix issues automatically
+    ruff check bad_code.py --fix
+
+    # Run all checks and fixes
+    ruff check bad_code.py --fix --select E,F
+
+Resources:
+----------
+
+- https://docs.astral.sh/ruff/
+- https://peps.python.org/pep-0008/
