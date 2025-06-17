@@ -58,7 +58,6 @@ Create ``.editorconfig`` with these settings:
     # Set default charset
     # 4 space indentation
     [*.py]
-    indent_size = 4
     max_line_length = 88
 
     # Indendation for json, yml, yaml, and toml
