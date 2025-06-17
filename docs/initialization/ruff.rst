@@ -1,6 +1,6 @@
-============
-Linters
-============
+====================
+Linter and Formatter
+====================
 
 .. meta::
     :description: Tools to enforce the uniformity in coding following the best practices
@@ -18,7 +18,7 @@ Linter is a tool that analyses our source code to find problems and help enforce
 Examples of Linters: flake8, ruff, pylint, estline (JavaScript/TypeScript), golint (Go), etc
 
 Incorrect Python Code (Unformatted + Bad Style)
------------------------------------------------
+*************************************************
 .. code-block:: python
 
     import sys,os
@@ -34,7 +34,7 @@ Incorrect Python Code (Unformatted + Bad Style)
     return a-b
 
 What is wrong?
---------------
+**************
 
 - Formatting:
     - Inconsistent indentation
@@ -53,17 +53,120 @@ What is wrong?
 - Output formatting:
     - Spaces inside print values are inconsistent
 
-Run:
-----
+Installing the Package:
+***********************
+
 .. code-block:: bash
 
-    ruff bad_code.py
+    uv add --dev ruff
+
+Run:
+****
+.. code-block:: bash
+
+    ruff check bad_code.py
 
 Output:
--------
+*******
 .. code-block:: bash
 
     F401: 'sys' imported but unused
-    E231: Missing whitespace after ','
-    E701: Multiple statements on one line (colon)
-    E302: Expected 2 blank lines, found 1
+    E401: Multiple imports on one line
+    
+Note: to get the detailed check, you can use flake8.
+
+.. code-block:: bash
+
+    E231: Missing whitespace after ',' '('
+    E271 multiple spaces after keyword, operator
+
+
+Formatter
+---------
+
+Formatter is a tool that automatically reformats our code to follow a consistent style of coding enforcing uniformity across codebase. It formats things like:
+
+- Bad spacing, indentation
+- Unnecessary parentheses or blank lines
+- Consistent quote usage (e.g., always double quotes)
+- Import reordering (some formatters like ruff do this)
+
+Examples: black, ruff, autopep8, yapf, prettier, go fmt, etc.
+
+*Note:* Formatters will not fix all the issues captured by linters.
+
+Formatters do not detect or fix:
+
+- Unused variables
+- Incorrect logic
+- Wrong function arguments
+- Undefined variables
+- Unreachable code
+- Bad naming conventions
+- Missing docstrings or type hints
+
+These are logic or semantic issues and require linters and type checkers (mypy).
+
+Run:
+****
+.. code-block:: bash
+
+    ruff format bad_code.py
+
+
+Output After Formatting:
+************************
+
+.. code-block:: python
+
+    import sys, os
+
+
+    def add(a, b):
+        print("Adding:", a, b)
+        return a + b
+
+
+    def subtract(a, b):
+        print("Subtracting:", a, b)
+        return a - b
+
+
+What ruff fixed:
+*****************
+
+- Cleaned up all spacing around arguments and operators.
+- Fixed indentation.
+- Standardized quotes, spacing, and returns.
+
+
+Ruff fixing issues
+-------------------
+
+if we want ruff to automatically fix issues:
+
+.. code-block:: bash
+    
+    ruff check bad_code.py --fix
+
+
+Output After Formatting:
+************************
+
+.. code-block:: python
+
+
+    def add(a, b):
+        print("Adding:", a, b)
+        return a + b
+
+
+    def subtract(a, b):
+        print("Subtracting:", a, b)
+        return a - b
+
+
+What ruff fixed:
+****************
+
+- Unnecessary imports also got removed
