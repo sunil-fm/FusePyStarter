@@ -181,7 +181,8 @@ Run the below commands as per the need to check, fix or format the code.
 .. code-block:: bash
 
     # Check for issues
-    ruff check bad_code.py
+    ruff check bad_code.py      # Check a specific file for issues
+    ruff check .                # Check all files in the current directory
 
     # Format the code
     ruff format bad_code.py
