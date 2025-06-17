@@ -1,0 +1,14 @@
+extend-select = []
+ignore = ["E203"]
+show-fixes = true
+target-version = "py39"
+
+[lint]
+select = ["E", "F"]
+ignore = ["E203"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true
+line-ending = "lf"
