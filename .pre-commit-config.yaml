@@ -169,7 +169,7 @@ repos:
           - --exclude='\.git|\.tox|tests/data/docs'
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0 # Use the latest version
+    rev: 7.2.0
     hooks:
       - id: flake8
         name: Check short description of Docstring
