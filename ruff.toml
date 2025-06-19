@@ -1,14 +1,17 @@
 extend-select = []
-ignore = ["E203"]
+ignore = []
 show-fixes = true
 target-version = "py39"
 
 [lint]
-select = ["E", "F"]
-ignore = ["E203"]
+select = ["E", "F", "D"]
+ignore = ["D212"]
 
 [format]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = true
 line-ending = "lf"
+
+[pydocstyle]
+convention = "google"
