@@ -81,7 +81,8 @@ envvar_prefix parameter:
     settings = Dynaconf(envvar_prefix="MYAPP") # We can change it as well, if we want a project-specific prefix.
 
 Suppose we have this setting in our settings.toml.
-.. code-block:: toml
+
+.. code-block:: python
 
     [default]
     app_name = "MyApp"
