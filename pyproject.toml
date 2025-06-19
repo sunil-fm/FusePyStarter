@@ -12,6 +12,7 @@ homepage = "https://github.com/ghimiresunil/PyFoundry.git"
 
 [dependency-groups]
 dev = [
+    "mypy>=1.16.1",
     "pytest>=8.4.0",
     "ruff>=0.11.13",
 ]
