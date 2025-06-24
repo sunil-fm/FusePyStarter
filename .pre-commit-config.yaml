@@ -120,6 +120,7 @@ repos:
         entry: mypy
         args:
           - --disallow-untyped-defs # disallow functions without type annotations
+          - --ignore-missing-imports
         exclude: docs
 
   - repo: https://github.com/compilerla/conventional-pre-commit
