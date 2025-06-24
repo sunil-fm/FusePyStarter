@@ -1,3 +1,7 @@
 .venv
 __pycache__
 .pytest_cache
+.secrets.toml
+.env
+.ruff_cache
+.mypy_cache

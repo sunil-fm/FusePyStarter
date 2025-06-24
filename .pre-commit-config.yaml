@@ -120,6 +120,7 @@ repos:
         entry: mypy
         args:
           - --disallow-untyped-defs # disallow functions without type annotations
+          - --ignore-missing-imports
         exclude: docs
 
   - repo: https://github.com/compilerla/conventional-pre-commit
@@ -174,5 +175,5 @@ repos:
       - id: flake8
         name: Check short description of Docstring
         additional_dependencies: [flake8-docstrings]
-        args: [--docstring-convention=google]
+        args: [--docstring-convention=google, --max-line-length=100]
         files: ^src/
