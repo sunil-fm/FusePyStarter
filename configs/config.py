@@ -6,6 +6,6 @@ settings = Dynaconf(
     environments=True,
     envvar_prefix="DYNACONF",
     load_dotenv=True,
-    settings_files=["settings.toml", ".secrets.toml"],
+    settings_files=["configs/settings.toml", "configs/.secrets.toml"],
     env_switcher="ENV_FOR_DYNACONF",
 )
