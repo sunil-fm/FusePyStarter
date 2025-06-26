@@ -1,8 +1,10 @@
 """Singleton logger and execution logging decorator."""
 
+import functools
 import logging
 import threading
-from typing import Any, Callable, Optional, TypeVar
+import time
+from typing import Any, Callable, Optional, TypeVar, cast
 
 from configs.config import settings
 
@@ -137,3 +139,61 @@ class AppLogger:
             None: This doesn't return anything meaningful.
         """
         self.logger.critical(message)
+
+
+def log_execution(func: T) -> T:
+    """Decorator that logs execution details of a function or method.
+
+    This includes entry, arguments, return value, execution time,
+    and exceptions if any occur during execution.
+
+    Args:
+        func (T): The function or method to be wrapped.
+
+    Returns:
+        T: The wrapped function with logging.
+    """
+
+    @functools.wraps(func)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        logger: logging.Logger = AppLogger().get_logger()
+        func_name: str = func.__name__
+
+        is_bound_method: bool = bool(
+            args
+            and (
+                isinstance(args[0], object)
+                and hasattr(args[0], "__class__")
+                and hasattr(args[0].__class__, func_name)
+            ),
+        )
+
+        full_name: str = (
+            f"{args[0].__class__.__name__}.{func_name}"
+            if is_bound_method
+            else func_name
+        )
+
+        logger.info(f"Entering: {full_name}")
+        logger.debug(f"Args: {args}, kwargs: {kwargs}")
+
+        start_time: float = time.time()
+        result: Any  # Declare here to satisfy type checker
+        duration: float
+
+        try:
+            result = func(*args, **kwargs)
+        except Exception as e:
+            duration = time.time() - start_time
+            logger.error(f"{full_name} failed in {duration:.4f}s: {e}")
+            logger.debug(f"Exception: {type(e).__name__}: {e}")
+            raise
+        else:
+            duration = time.time() - start_time
+            logger.info(f"{full_name} completed in {duration:.4f}s")
+            logger.debug(f"Return: {result}")
+            return result
+        finally:
+            logger.debug(f"Exiting: {full_name}")
+
+    return cast(T, wrapper)
