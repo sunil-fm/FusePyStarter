@@ -1,6 +1,6 @@
 """Temperature conversion functions between Celsius and Fahrenheit."""
 
-from src.decorators import log_execution
+from src.decorators import log_execution, logger
 
 
 @log_execution
@@ -13,7 +13,14 @@ def celsius_to_fahrenheit(c: float) -> float:
     Returns:
         float: Temperature in Fahrenheit
     """
-    return (c * 9 / 5) + 32
+    if c == 0:
+        logger.debug("Celsius input is freezing point.")
+    elif c == 100:
+        logger.debug("Celsius input is boiling point.")
+
+    result = (c * 9 / 5) + 32
+    logger.debug(f"Converted {c}°C to {result}°F")
+    return result
 
 
 @log_execution
@@ -26,4 +33,11 @@ def fahrenheit_to_celsius(f: float) -> float:
     Returns:
         float: Temperature in Celsius
     """
-    return (f - 32) * 5 / 9
+    if f == 32:
+        logger.debug("Fahrenheit input is freezing point.")
+    elif f == 212:
+        logger.debug("Fahrenheit input is boiling point.")
+
+    result = (f - 32) * 5 / 9
+    logger.debug(f"Converted {f}°F to {result}°C")
+    return result
