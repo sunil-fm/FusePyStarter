@@ -165,7 +165,7 @@ def log_execution(func: T) -> T:
                 isinstance(args[0], object)
                 and hasattr(args[0], "__class__")
                 and hasattr(args[0].__class__, func_name)
-            ),
+            )
         )
 
         full_name: str = (
