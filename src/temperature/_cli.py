@@ -2,6 +2,7 @@
 
 import fire
 
+from src.decorators import log_execution, logger
 from src.temperature import (
     FaultyTemperatureConverter,
     TemperatureConverter,
@@ -21,16 +22,19 @@ class Main:
     """
 
     def __init__(self) -> None:  # noqa: D107
+        logger.info("Initializing CLI commands in Main class.")
         self.celsius_to_fahrenheit = celsius_to_fahrenheit
         self.fahrenheit_to_celsius = fahrenheit_to_celsius
         self.faulty_temp = FaultyTemperatureConverter
         self.advance_temp = TemperatureConverter
 
 
+@log_execution
 def main() -> None:
     """Run the CLI using Fire.
 
     Returns:
         None: This function does not return a value.
     """
+    logger.info("Starting Temperature Conversion CLI...")
     fire.Fire(Main)

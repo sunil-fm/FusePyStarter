@@ -1,6 +1,7 @@
 """Temperature Conversion Module with Intentional Errors for Testing."""
 
 from configs.config import settings
+from src.decorators import log_execution, logger
 from src.temperature.advanced import TemperatureConverter
 
 
@@ -20,20 +21,18 @@ class FaultyTemperatureConverter(TemperatureConverter):
         Returns:
             None: This method doesn't return anything meaningful.
         """
-        # Lazy loading when needed
         cls.calibration_error = settings.get("calibration_error", 0)
+        logger.info(f"Calibration error loaded: {cls.calibration_error}")
 
     @classmethod
+    @log_execution
     def convert(cls, temp: float, from_unit: str, to_unit: str) -> float:
         """Convert temperature between units with intentional errors.
 
         Args:
             temp (float): Temperature value to convert.
-                Will be cast to float if not already.
             from_unit (str): Original temperature unit (case-sensitive).
-                Must be one of: 'C' (Celsius), 'F' (Fahrenheit), 'K' (Kelvin)
             to_unit (str): Target temperature unit (case-sensitive).
-                Same valid values as from_unit.
 
         Returns:
             float: Converted temperature value with intentional errors.
@@ -42,10 +41,20 @@ class FaultyTemperatureConverter(TemperatureConverter):
         result = super().convert(temp, from_unit, to_unit)
 
         if from_unit == "C" and to_unit == "F":
+            logger.debug(
+                f"Applying calibration error: -{cls.calibration_error}° to C→F"
+            )
             return result - cls.calibration_error
+
         elif from_unit == "F" and to_unit == "C":
+            logger.debug("Applying intentional multiplier 1.1 to F→C")
             return result * 1.1
+
         elif "K" in (from_unit, to_unit):
+            logger.debug("Applying fixed offset +2.5 to Kelvin-related conversion")
             return result + 2.5
-        else:
-            return round(result)
+
+        logger.warning(
+            f"No intentional error rule matched for: {from_unit} → {to_unit}"
+        )
+        return round(result)

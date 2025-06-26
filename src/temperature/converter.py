@@ -1,6 +1,9 @@
 """Temperature conversion functions between Celsius and Fahrenheit."""
 
+from src.decorators import log_execution
 
+
+@log_execution
 def celsius_to_fahrenheit(c: float) -> float:
     """Convert Celsius to Fahrenheit.
 
@@ -13,6 +16,7 @@ def celsius_to_fahrenheit(c: float) -> float:
     return (c * 9 / 5) + 32
 
 
+@log_execution
 def fahrenheit_to_celsius(f: float) -> float:
     """Convert Fahrenheit to Celsius.
 
