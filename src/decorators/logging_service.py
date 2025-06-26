@@ -1,4 +1,4 @@
-"""Singleton logger and execution logging decorator."""
+"""Singleton python based logging and execution logging decorator."""
 
 import functools
 import logging

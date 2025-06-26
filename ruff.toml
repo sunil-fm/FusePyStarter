@@ -1,17 +1,15 @@
-extend-select = []
-ignore = []
+
 show-fixes = true
-target-version = "py39"
+target-version = "py312"
 
 [lint]
 select = ["E", "F", "D"]
 ignore = ["D212"]
+extend-select = []
+pydocstyle.convention = "google"
 
 [format]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = true
 line-ending = "lf"
-
-[pydocstyle]
-convention = "google"
