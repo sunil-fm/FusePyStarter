@@ -22,3 +22,7 @@ temp-convert = "src.temperature._cli:main"
 
 [project.urls]
 homepage = "https://github.com/ghimiresunil/PyFoundry.git"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
