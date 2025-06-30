@@ -159,7 +159,7 @@ To run all tests, simply use:
 
 .. code-block:: console
 
-    $ pytest
+    $ uv run pytest
 
 pytest will automatically discover and run tests matching the naming conventions listed above.
 
