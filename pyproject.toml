@@ -15,7 +15,13 @@ requires-python = ">=3.12"
 dependencies = ["dynaconf>=3.2.11", "fire>=0.7.0"]
 
 [dependency-groups]
-dev = ["mypy>=1.16.1", "pre-commit>=4.2.0", "pytest>=8.4.0", "ruff>=0.11.13"]
+dev = [
+  "coverage>=7.9.1",
+  "mypy>=1.16.1",
+  "pre-commit>=4.2.0",
+  "pytest>=8.4.0",
+  "ruff>=0.11.13",
+]
 
 [project.scripts]
 temp-convert = "src.temperature._cli:main"
