@@ -1,7 +1,7 @@
 import pytest
 
 import src
-from src.temperature.faulty import FaultyTemperatureConverter as Converter
+from src.temperature import FaultyTemperatureConverter as Converter
 
 
 class TestFaultyTemperatureConverter:
