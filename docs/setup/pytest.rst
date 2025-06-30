@@ -1,3 +1,4 @@
+
 =====================
 Testing with pytest
 =====================
@@ -16,6 +17,10 @@ Key Features
 - Thriving plugin ecosystem (315+ plugins) and active community
 
 For full documentation, visit: https://docs.pytest.org/en/stable/
+
+.. note::
+
+   pytest rewrites assert statements to provide rich introspection output on failure, which makes debugging test failures much easier.
 
 Installation
 ------------
@@ -77,6 +82,76 @@ Let's write tests for two simple temperature conversion functions:
         result = fahrenheit_to_celsius(fahrenheit)
         assert result == pytest.approx(expected_celsius)
 
+Fixtures
+--------
+
+Fixtures are used to manage setup and teardown logic for tests.
+
+.. code-block:: python
+
+    import pytest
+
+    @pytest.fixture
+    def sample_data():
+        return {"name": "Sunil", "age": 30}
+
+    def test_sample_data(sample_data):
+        assert sample_data["name"] == "Sunil"
+
+Markers
+-------
+
+pytest allows tests to be grouped or filtered using markers.
+
+.. code-block:: python
+
+    import pytest
+
+    @pytest.mark.slow
+    def test_large_dataset():
+        # time-consuming test
+        ...
+
+To run only tests marked as "slow":
+
+.. code-block:: console
+
+    $ pytest -m slow
+
+To register custom markers in ``pyproject.toml``:
+
+.. code-block:: toml
+
+    [tool.pytest.ini_options]
+    markers = [
+        "slow: marks tests as slow",
+    ]
+
+Common CLI Options
+------------------
+
+- ``-v``: Increase verbosity
+- ``-q``: Decrease verbosity
+- ``-k <expression>``: Run tests matching the expression
+- ``-m <marker>``: Run tests matching a marker
+- ``--maxfail=<num>``: Stop after N failures
+- ``--disable-warnings``: Suppress warnings
+
+Example:
+
+.. code-block:: console
+
+    $ pytest -v -k "fahrenheit" --maxfail=2 --disable-warnings
+
+Naming Conventions
+------------------
+
+pytest will automatically discover tests that follow these patterns:
+
+- Files named ``test_*.py`` or ``*_test.py``
+- Functions prefixed with ``test_``
+- Classes prefixed with ``Test`` (without ``__init__`` methods)
+
 Running Tests
 -------------
 
@@ -86,7 +161,7 @@ To run all tests, simply use:
 
     $ pytest
 
-pytest will automatically discover and run all files matching the patterns ``test_*.py`` or ``*_test.py`` within the current directory and subdirectories.
+pytest will automatically discover and run tests matching the naming conventions listed above.
 
 Integration with pre-commit
 ---------------------------
@@ -112,7 +187,7 @@ To run tests automatically before every commit, add the following to your ``.pre
           always_run: true
           pass_filenames: false
 
-This ensures dependencies are installed and tests are executed before every commit, catching issues early.
+This ensures dependencies are installed and tests are executed before every commit, helping catch issues early.
 
 Uninstallation
 --------------
@@ -123,6 +198,7 @@ To remove pytest:
 
     $ uv remove --dev pytest
 
-----
+Conclusion
+----------
 
 pytest is a powerful, flexible, and widely adopted testing tool that helps you maintain code quality and catch bugs early through simple yet expressive tests.
