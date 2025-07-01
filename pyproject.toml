@@ -20,6 +20,7 @@ dev = [
   "mypy>=1.16.1",
   "pre-commit>=4.2.0",
   "pytest>=8.4.0",
+  "pytest-cov>=6.2.1",
   "ruff>=0.11.13",
 ]
 
@@ -32,6 +33,7 @@ homepage = "https://github.com/ghimiresunil/PyFoundry.git"
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
+addopts = "--cov --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
