@@ -141,7 +141,7 @@ Ruff fixing issues
 if we want ruff to automatically fix issues:
 
 .. code-block:: bash
-    
+
     ruff check bad_code.py --fix
 
 

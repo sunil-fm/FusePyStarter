@@ -112,7 +112,7 @@ Run:
 ****
 .. code-block:: bash
 
-    mypy good_test.py       
+    mypy good_test.py
 
 Output:
 *******
