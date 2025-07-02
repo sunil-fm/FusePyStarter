@@ -105,4 +105,3 @@ Additional Resources
 - Official Documentation: https://editorconfig.org/
 - Python Style Guide: https://peps.python.org/pep-0008/
 - Black Formatter: https://black.readthedocs.io/
-
