@@ -115,10 +115,13 @@ Additional Resources
 - Official Docs: https://pre-commit.com/
 - Example Hooks: https://github.com/pre-commit/pre-commit-hooks
 
+
 Next Step
 ---------
 
-After setting up `pre-commit`, the next step is to define a **CI pipeline** (e.g., GitHub Actions, GitLab CI) that runs the same checks server-side. This ensures hooks are consistently enforced in pull requests, even if developers forget to install them locally.
+After setting up `pre-commit`, the next step is to configure **Dynaconf** for managing your application settings and environment configurations. Dynaconf simplifies handling multiple environments, secrets, and layered configurations.
+
+See the next documentation section on Dynaconf configuration to get started.
 
 Uninstall
 ---------
