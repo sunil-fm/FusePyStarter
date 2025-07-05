@@ -41,7 +41,7 @@ Use Dynaconf in your Python code:
         environments=True,
         envvar_prefix="DYNACONF",
         load_dotenv=True,
-        settings_files=['settings.toml', "secrets/.secrets.toml"],
+        settings_files=["configs/settings.toml", "configs/.secrets.toml"],
     )
 
 - `environments=True` enables environment sections like `[dev]`, `[prod]`
