@@ -166,8 +166,6 @@ What ruff fixed:
 
 - Unnecessary imports also got removed
 
-
-
 Ruff Usage in a Project
 ------------------------
 

@@ -1,6 +1,6 @@
-============
+==========================
 EditorConfig Configuration
-============
+==========================
 
 .. meta::
    :description: Guidelines for setting up consistent coding styles across editors and IDEs using EditorConfig.
@@ -20,7 +20,7 @@ Key Features
 - Cross-platform support (Windows/macOS/Linux)
 
 Configuration Discovery
-----------------------
+------------------------
 
 When opening a file, EditorConfig:
 
@@ -87,18 +87,6 @@ Implementation Notes
 2. **Editor Support**:
    - Most modern editors have native support
    - Plugins available for others (see https://editorconfig.org/#download)
-
-Next Steps
-----------
-
-.. admonition:: Proceed to Linting Setup
-
-    To configure Python linting:
-
-    .. code-block:: bash
-
-        git stash          # Save current changes
-        git checkout init/lint/flake8  # Switch to linting configuration
 
 Additional Resources
 --------------------

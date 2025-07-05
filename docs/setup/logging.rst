@@ -1,4 +1,3 @@
-
 ================
 Python Logging
 ================
@@ -85,7 +84,7 @@ Output example:
 AppLogger Class
 ===============
 
-.. autoclass:: src.decorators.logging_service.AppLogger
+.. autoclass:: src.decorators.AppLogger
    :members:
    :undoc-members:
    :show-inheritance:
@@ -93,7 +92,8 @@ AppLogger Class
 log_execution Decorator
 =======================
 
-.. autofunction:: src.decorators.logging_service.log_execution
+.. autofunction:: src.decorators.log_execution
+    :no-index:
 
 Comparison: Python Logging vs. Loguru
 =====================================

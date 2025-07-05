@@ -44,7 +44,7 @@ Configuration
 
 Create a file named .pre-commit-config.yaml in the root of your project. Here's an example setup:
 
-.. literalinclude:: ../.pre-commit-config.yaml
+.. literalinclude:: ../../.pre-commit-config.yaml
    :language: yaml
    :caption: .pre-commit-config.yaml
 

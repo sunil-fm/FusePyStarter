@@ -206,7 +206,6 @@ Temporarily switches the environment for a block of code.
     # Back to original env
     print(settings.db_url)  # Outputs: sqlite:///local.db
 
-
 Uninstall
 ---------
 

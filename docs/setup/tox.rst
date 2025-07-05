@@ -19,6 +19,7 @@ Installation
 ------------
 
 .. code-block:: console
+
     $ uv add --dev tox
 
 Put basic information about your project and the test environments you want your project

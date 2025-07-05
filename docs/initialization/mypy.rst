@@ -120,7 +120,6 @@ Output:
 
     Success: no issues found in 1 source file
 
-
 Resources
 -----------
 
