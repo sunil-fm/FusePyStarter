@@ -1,15 +1,13 @@
 """Sphinx configuration for building project documentation."""
 
-import os
-import sys
+from pathlib import Path
 
 import toml
 
-sys.path.insert(0, os.path.abspath("."))
-
 
 def _get_project_meta():
-    return toml.load("../pyproject.toml")["project"]
+    project_root = Path(__file__).resolve().parent.parent
+    return toml.load(project_root / "pyproject.toml")["project"]
 
 
 pkg_meta = _get_project_meta()
