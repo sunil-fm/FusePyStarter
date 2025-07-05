@@ -161,7 +161,6 @@ Additional Resources
 --------------------
 
 - Pytest documentation: https://docs.pytest.org/
-- Awesome Pytest plugins: https://plugincompat.herokuapp.com/
 - Parametrization guide: https://docs.pytest.org/en/latest/how-to/parametrize.html
 
 Next Step
