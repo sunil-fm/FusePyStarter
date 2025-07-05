@@ -1,44 +1,73 @@
 ============
-Type Hinting
+Type Hinting: MyPy
 ============
 
-Type hinting and checking means providing type references and verifying that values in our program are used in a way consistent with their data types. For example, if a function expects a string, type checking ensures you don’t accidentally pass it an integer.
+.. meta::
+    :description: Using mypy for static type checking and enforcing type correctness in Python code.
 
-Python is dynamically typed, but `mypy` lets you add static type hints that help:
+Introduction
+------------
 
-- Detect type-related errors without running the code.
-- Improve code readability and editor support (like autocompletion).
-- Enforce better documentation and maintainability.
+Type hinting and checking means providing type references and verifying that values in a program are used in a way consistent with their declared data types. While Python is dynamically typed, tools like `mypy` allow for static type checking without running the code.
 
-Types:
+Benefits of using type hints with `mypy`:
 
-- Static
-    - Happens before runtime
-    - Tools: mypy, pyright, etc
-- Dynamic
-    - Happens at runtime
+- Detect type-related bugs early (without executing the program)
+- Improve code readability and editor support (e.g., autocompletion)
+- Encourage better documentation and long-term maintainability
 
-Python is dynamically typed.
+Key Features
+------------
+
+- Static type checking at development time
+- Detects type mismatches, missing annotations, and more
+- Integrates well with editors and CI pipelines
+- Supports type inference, strict checking, and gradual typing
+
+Installation
+------------
+
+Install `mypy` using `uv` or `pip`:
 
 .. code-block:: bash
+
+    uv add --dev mypy
+
+Run `mypy` on your source files:
+
+.. code-block:: bash
+
+    mypy src/
+
+Configuration
+-------------
+
+To customize behavior, create a `mypy.ini` file in your project root. Here's your current configuration:
+
+.. code-block:: ini
+
+    [mypy]
+    python_version = 3.9
+    disallow_untyped_defs = true
+    ignore_missing_imports = true
+
+- `python_version`: Sets the Python version `mypy` should assume
+- `disallow_untyped_defs`: Requires all functions to have type annotations
+- `ignore_missing_imports`: Skips errors for third-party modules without stubs
+
+Usage
+-----
+
+**Dynamic Typing in Python:**
+
+.. code-block:: python
 
     x = "hello"  # x is a str
     x = 42       # now x is an int
 
-Installing mypy
------------------
+Python allows this flexibility at runtime, but static checking helps avoid type bugs before deployment.
 
-.. code-block:: bash
-
-    # Install mypy
-    uv add --dev mypy
-
-    # Run mypy on your code
-    mypy src/
-
-
-Incorrect Type Annotations
-----------------------------
+**Incorrect Type Annotations**
 
 .. code-block:: python
 
@@ -51,24 +80,22 @@ Incorrect Type Annotations
     add(5, "hello")
 
 Run:
-****
+
 .. code-block:: bash
 
     mypy bad_test.py
 
-
 Output:
-*******
-.. code-block:: python
+
+.. code-block:: text
 
     bad_test.py:4: error: Function is missing a return type annotation  [no-untyped-def]
     bad_test.py:4: error: Function is missing a type annotation for one or more arguments  [no-untyped-def]
     bad_test.py:10: error: Argument 2 to "add" has incompatible type "str"; expected "int"  [arg-type]
     Found 3 errors in 1 file (checked 1 source file)
 
+**Correct Type Annotations**
 
-Correct Type Annotations
-----------------------------
 Example 1:
 
 .. code-block:: python
@@ -109,18 +136,33 @@ Example 3:
     add(5, 6)
 
 Run:
-****
+
 .. code-block:: bash
 
     mypy good_test.py
 
 Output:
-*******
-.. code-block:: python
+
+.. code-block:: text
 
     Success: no issues found in 1 source file
 
-Resources
------------
+Additional Resources
+--------------------
 
-- https://mypy.readthedocs.io/en/stable/getting_started.html
+- Mypy Docs: https://mypy.readthedocs.io/en/stable/getting_started.html
+- PEP 484 – Type Hints: https://peps.python.org/pep-0484/
+
+Next Step
+---------
+
+Once type checking is in place with `mypy`, the next step is to set up **pre-commit** to automatically run tools like `ruff`, `mypy`, and formatters before each commit. This helps enforce consistency and catch issues early in your workflow.
+
+Uninstall
+---------
+
+To uninstall `mypy`:
+
+.. code-block:: bash
+
+    uv remove --dev mypy
