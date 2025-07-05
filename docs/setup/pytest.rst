@@ -44,7 +44,8 @@ This instructs `pytest` to discover tests in the `tests/` directory and register
 Usage
 -----
 
-### Writing Tests
+1. Writing Tests
+^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -65,18 +66,20 @@ Usage
     def test_fahrenheit_to_celsius(fahrenheit, expected_celsius):
         assert fahrenheit_to_celsius(fahrenheit) == pytest.approx(expected_celsius)
 
-### Fixtures
+2. Fixtures
+^^^^^^^^^^^
 
 .. code-block:: python
 
     @pytest.fixture
     def sample_data():
-        return {"name": "Sunil", "age": 27}
+        return {"name": "Sunil", "age": 30}
 
     def test_sample_data(sample_data):
         assert sample_data["name"] == "Sunil"
 
-### Markers
+3. Markers
+^^^^^^^^^^
 
 Use markers to group or filter tests:
 
@@ -92,7 +95,17 @@ Run only slow tests:
 
     pytest -m slow
 
-### Common CLI Options
+Register custom markers in ``pyproject.toml``:
+
+.. code-block:: toml
+
+    [tool.pytest.ini_options]
+    markers = [
+        "slow: marks tests as slow",
+    ]
+
+4. Common CLI Options
+^^^^^^^^^^^^^^^^^^^^^
 
 - `-v`: Verbose mode
 - `-q`: Quiet mode
@@ -107,24 +120,28 @@ Example:
 
     pytest -v -k "fahrenheit" --maxfail=2 --disable-warnings
 
-### Naming Conventions
+5. Naming Conventions
+^^^^^^^^^^^^^^^^^^^^^
 
-- Files: `test_*.py` or `*_test.py`
-- Functions: `test_*`
-- Classes: `Test*` (no `__init__`)
+pytest automatically discovers tests that match:
 
-### Running Tests
+- Files named `test_*.py` or `*_test.py`
+- Functions prefixed with `test_`
+- Classes prefixed with `Test` (no `__init__` method)
 
-To run all tests:
+6. Running Tests
+^^^^^^^^^^^^^^^^
+
+Run all tests using:
 
 .. code-block:: console
 
     uv run pytest
 
-Integration with pre-commit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+7. Integration with pre-commit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To enforce tests before committing, add this to your `.pre-commit-config.yaml`:
+Add the following hook to `.pre-commit-config.yaml`:
 
 .. code-block:: yaml
 
@@ -138,21 +155,24 @@ To enforce tests before committing, add this to your `.pre-commit-config.yaml`:
           always_run: true
           pass_filenames: false
 
+This ensures that your test suite runs before every commit.
+
 Additional Resources
 --------------------
 
 - Pytest documentation: https://docs.pytest.org/
-- Parametrization: https://docs.pytest.org/en/latest/how-to/parametrize.html
+- Awesome Pytest plugins: https://plugincompat.herokuapp.com/
+- Parametrization guide: https://docs.pytest.org/en/latest/how-to/parametrize.html
 
 Next Step
 ---------
 
-Next, integrate **coverage** to measure how much of your code is exercised by your tests. This helps ensure all important logic paths are tested and highlights untested code.
+Now that testing is set up, the next step is to integrate **test coverage** using the `coverage` tool. This helps ensure your tests are exercising all critical parts of your code.
 
 Uninstall
 ---------
 
-To remove `pytest` from your project:
+To remove `pytest`:
 
 .. code-block:: console
 
