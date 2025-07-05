@@ -2,33 +2,42 @@
 Testing: tox
 ============
 
-**tox** is a generic virtualenv management and test command line tool you can use for:
+Introduction
+------------
 
-* checking that your package installs correctly with different Python versions and
-  interpreters
-* running your tests in each of the environments, configuring your test tool of choice
-* acting as a frontend to Continuous Integration servers, greatly reducing boilerplate
-  and merging CI and shell-based testing.
+**tox** is a command-line tool that automates testing in isolated environments. It’s primarily used to ensure code works consistently across different Python versions and environments, while simplifying setup and integration with CI/CD pipelines.
 
-**tox** aims to automate and standardize testing in Python. It is part of a larger
-vision of easing the packaging, testing and release process of Python software.
+tox can run test suites, linters, or any shell command within virtual environments it creates and manages automatically.
 
-For more information visit https://tox.readthedocs.io/en/latest/
+Docs: https://tox.readthedocs.io/en/latest/
+
+Key Features
+------------
+
+- Automates multi-version Python testing
+- Manages isolated test environments with virtualenv
+- Integrates seamlessly with `pytest`, `pre-commit`, and linters
+- Simplifies CI setup and ensures local-dev parity
+- Highly configurable and extensible with plugins
 
 Installation
 ------------
 
+Install `tox` as a development dependency using `uv`:
+
 .. code-block:: console
 
-    $ uv add --dev tox
+    uv add --dev tox
 
-Put basic information about your project and the test environments you want your project
-to run in into a ``tox.ini`` file.
+Configuration
+-------------
+
+Define environments and commands in a `tox.ini` file at your project root:
 
 .. code-block:: ini
 
     [tox]
-    envlist =  py312, py313, pre-commit
+    envlist = py312, py313, pre-commit
     skipsdist = true
 
     [testenv]
@@ -43,16 +52,57 @@ to run in into a ``tox.ini`` file.
     setenv = SKIP=install-dependencies,test
     commands = pre-commit run --all-files
 
+Explanation:
+
+- `envlist`: Environments to run (e.g., Python versions, pre-commit)
+- `commands_pre`: Run setup commands like editable install
+- `commands`: Run tests with `pytest`
+- `skip_install`: Skip package install for environments like `pre-commit`
+
 Usage
 -----
 
+Run all defined environments:
+
 .. code-block:: console
 
-    $ tox
+    tox
+
+Run a specific environment (e.g., pre-commit only):
+
+.. code-block:: console
+
+    tox -e pre-commit
+
+Run multiple environments:
+
+.. code-block:: console
+
+    tox -e py312,pre-commit
+
+View the full configuration and environment list:
+
+.. code-block:: console
+
+    tox -av
+
+Additional Resources
+--------------------
+
+- Official Docs: https://tox.readthedocs.io/
+- GitHub: https://github.com/tox-dev/tox
+- tox plugins: https://tox.readthedocs.io/en/latest/plugins.html
+
+Next Step
+---------
+
+Set up **Sphinx** for generating clean, versioned project documentation. Sphinx is highly extensible and integrates with `reStructuredText`, `Markdown`, and docstring introspection.
 
 Uninstall
 ---------
 
+To remove tox:
+
 .. code-block:: console
 
-    $ uv remove --dev tox
+    uv remove --dev tox
