@@ -1,24 +1,67 @@
 ====================
-Linter and Formatter
+Linter and Formatter: Ruff
 ====================
 
 .. meta::
     :description: Tools to enforce the uniformity in coding following the best practices
 
-Linter
-------
+Introduction
+------------
 
-Linter is a tool that analyses our source code to find problems and help enforce code quality and best practices by detecting issues before runtime. It finds problems such as:
+Ruff is an extremely fast Python linter and formatter that helps maintain consistent code quality by detecting syntax issues, enforcing style guidelines, and fixing common formatting problems. It supports rules from Flake8, Black, isort, pydocstyle, and others.
 
-- Syntax errors
-- Style guide violations
-- Unused variables/imports
-- Possible bugs or logical issues
+Key Features
+------------
 
-Examples of Linters: flake8, ruff, pylint, estline (JavaScript/TypeScript), golint (Go), etc
+- Lightning-fast performance
+- Built-in support for linting and formatting
+- Compatible with popular linting standards (PEP8, Flake8, etc.)
+- Highly configurable with `ruff.toml`
+- Supports automatic fixes
+- Compatible with multiple Python versions
 
-Incorrect Python Code (Unformatted + Bad Style)
-*************************************************
+Installation
+------------
+
+Use `uv` or `pip` to install Ruff as a development dependency:
+
+.. code-block:: bash
+
+    uv add --dev ruff
+
+Or:
+
+.. code-block:: bash
+
+    pip install ruff
+
+Configuration
+-------------
+
+Create a `ruff.toml` at the root of your project with the following content:
+
+.. code-block:: toml
+
+    show-fixes = true
+    target-version = "py312"
+
+    [lint]
+    select = ["E", "F", "D"]
+    ignore = ["D212"]
+    extend-select = []
+    pydocstyle.convention = "google"
+
+    [format]
+    quote-style = "double"
+    indent-style = "space"
+    skip-magic-trailing-comma = true
+    line-ending = "lf"
+
+Usage
+-----
+
+**1. Incorrect Python Code (Unformatted + Bad Style):**
+
 .. code-block:: python
 
     import sys,os
@@ -33,84 +76,35 @@ Incorrect Python Code (Unformatted + Bad Style)
     print( "Subtracting:", a,b )
     return a-b
 
-What is wrong?
-**************
+**What is wrong?**
 
-- Formatting:
-    - Inconsistent indentation
-    - Extra spaces around parameters
-    - Bad spacing in return statement
+- Inconsistent indentation and spacing
+- Multiple imports on one line
+- Poor formatting inside `print` statements
+- Violates PEP8 style guide
 
-- Import style:
-    - import sys, os violates PEP8 (imports should be separate lines)
+**2. Run Ruff to Lint the Code**
 
-- Indentation:
-    - print in add() is poorly indented
-
-- Function spacing:
-    - Extra spaces around function names and arguments
-
-- Output formatting:
-    - Spaces inside print values are inconsistent
-
-Installing the Package:
-***********************
-
-.. code-block:: bash
-
-    uv add --dev ruff
-
-Run:
-****
 .. code-block:: bash
 
     ruff check bad_code.py
 
-Output:
-*******
+**Example Output:**
+
 .. code-block:: bash
 
     F401: 'sys' imported but unused
     E401: Multiple imports on one line
-    E231: Missing whitespace after ',' '('
-    E271 multiple spaces after keyword, operator
+    E231: Missing whitespace after ','
+    E271: Multiple spaces after keyword, operator
 
+**3. Run Ruff to Format the Code**
 
-Formatter
----------
-
-Formatter is a tool that automatically reformats our code to follow a consistent style of coding enforcing uniformity across codebase. It formats things like:
-
-- Bad spacing, indentation
-- Unnecessary parentheses or blank lines
-- Consistent quote usage (e.g., always double quotes)
-- Import reordering (some formatters like ruff do this)
-
-Examples: black, ruff, autopep8, yapf, prettier, go fmt, etc.
-
-*Note:* Formatters will not fix all the issues captured by linters.
-
-Formatters do not detect or fix:
-
-- Unused variables
-- Incorrect logic
-- Wrong function arguments
-- Undefined variables
-- Unreachable code
-- Bad naming conventions
-- Missing docstrings or type hints
-
-These are logic or semantic issues and require linters and type checkers (mypy).
-
-Run:
-****
 .. code-block:: bash
 
     ruff format bad_code.py
 
-
-Output After Formatting:
-************************
+**Output After Formatting:**
 
 .. code-block:: python
 
@@ -126,30 +120,23 @@ Output After Formatting:
         print("Subtracting:", a, b)
         return a - b
 
+**What Ruff Fixed:**
 
-What ruff fixed:
-*****************
+- Cleaned up spacing and indentation
+- Standardized function signatures
+- Normalized print formatting
 
-- Cleaned up all spacing around arguments and operators.
-- Fixed indentation.
-- Standardized quotes, spacing, and returns.
+**4. Auto-fix Issues**
 
-
-Ruff fixing issues
--------------------
-
-if we want ruff to automatically fix issues:
+To fix both formatting and linting issues:
 
 .. code-block:: bash
 
     ruff check bad_code.py --fix
 
-
-Output After Formatting:
-************************
+**Output After Auto-fix:**
 
 .. code-block:: python
-
 
     def add(a, b):
         print("Adding:", a, b)
@@ -160,34 +147,50 @@ Output After Formatting:
         print("Subtracting:", a, b)
         return a - b
 
+**What Ruff Fixed:**
 
-What ruff fixed:
-****************
+- Removed unused imports
+- Auto-corrected formatting and spacing issues
 
-- Unnecessary imports also got removed
-
-Ruff Usage in a Project
-------------------------
-
-Run the below commands as per the need to check, fix or format the code.
+**5. Ruff Usage in a Project**
 
 .. code-block:: bash
 
     # Check for issues
-    ruff check bad_code.py      # Check a specific file for issues
-    ruff check .                # Check all files in the current directory
+    ruff check bad_code.py
+    ruff check .
 
-    # Format the code
+    # Format code
     ruff format bad_code.py
 
-    # Fix issues automatically
+    # Fix lint errors automatically
     ruff check bad_code.py --fix
 
-    # Run all checks and fixes
+    # Run all checks and fixes selectively
     ruff check bad_code.py --fix --select E,F
 
-Resources:
-----------
+Additional Resources
+--------------------
 
-- https://docs.astral.sh/ruff/
-- https://peps.python.org/pep-0008/
+- Ruff documentation: https://docs.astral.sh/ruff/
+- PEP8 style guide: https://peps.python.org/pep-0008/
+
+Next Step
+---------
+
+Once Ruff is configured, the next step is to integrate **mypy** for static type checking. While Ruff enforces style and catches common bugs, mypy ensures that your code complies with Python's type hints and helps catch type-related errors before runtime.
+
+Uninstall
+---------
+
+To remove Ruff from your project:
+
+.. code-block:: bash
+
+    uv remove ruff
+
+Or if installed via pip:
+
+.. code-block:: bash
+
+    pip uninstall ruff
