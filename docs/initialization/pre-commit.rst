@@ -101,7 +101,7 @@ Skip a hook:
 
 .. code-block:: bash
 
-    SKIP=ruff git commit -m "chore: skip ruff temporarily"
+    SKIP=ruff git commit -m "chore(ruff): skip ruff temporarily"
 
 Update hook versions:
 
