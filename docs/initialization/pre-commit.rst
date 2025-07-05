@@ -114,9 +114,6 @@ Additional Resources
 
 - Official Docs: https://pre-commit.com/
 - Example Hooks: https://github.com/pre-commit/pre-commit-hooks
-- Conventional Commits: https://www.conventionalcommits.org/
-- Ruff: https://docs.astral.sh/ruff/
-- Mypy: https://mypy.readthedocs.io/
 
 Next Step
 ---------
