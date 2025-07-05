@@ -71,7 +71,7 @@ Usage
 
     @pytest.fixture
     def sample_data():
-        return {"name": "Sunil", "age": 30}
+        return {"name": "Sunil", "age": 27}
 
     def test_sample_data(sample_data):
         assert sample_data["name"] == "Sunil"
@@ -142,7 +142,6 @@ Additional Resources
 --------------------
 
 - Pytest documentation: https://docs.pytest.org/
-- Awesome Pytest plugins: https://plugincompat.herokuapp.com/
 - Parametrization: https://docs.pytest.org/en/latest/how-to/parametrize.html
 
 Next Step
