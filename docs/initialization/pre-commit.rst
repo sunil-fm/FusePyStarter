@@ -2,181 +2,139 @@
 Pre-commit Integration
 =======================
 
-.. contents::
-   :local:
-   :depth: 2
-
 Introduction
-============
+------------
 
-**Pre-commit** is a multi-language package manager for Git hooks. It ensures code quality by running defined checks automatically on every commit. This prevents issues like syntax errors, trailing whitespace, or incorrect commit messages from entering your repository.
+**Pre-commit** is a framework for managing and maintaining multi-language Git hooks. It automates code quality checks before a commit is accepted, helping enforce standards, catch errors early, and reduce trivial issues in code reviews.
 
-For full documentation, visit: https://pre-commit.com/
+Why use pre-commit?
 
-Why Use Pre-commit?
--------------------
+- Catch errors before code reaches CI
+- Enforce consistent code styles
+- Validate file syntax, size, and structure
+- Ensure type and docstring correctness
+- Block commits that violate team policies
 
-- Catches issues early (before CI/CD).
-- Improves code consistency and quality.
-- Reduces reviewer fatigue over trivial issues.
-- Enforces standards across teams.
-- Easy to configure and share.
+Key Features
+------------
+
+- Runs checks automatically on `git commit`
+- Supports Python and non-Python checks
+- Enforces linting, formatting, typing, and docstring style
+- Blocks dangerous or large file commits
+- Validates YAML, JSON, TOML syntax
+- Ensures commit messages follow Conventional Commit rules
 
 Installation
-============
+------------
 
-.. code-block:: console
+Install `pre-commit`:
 
-   $ uv add --dev pre-commit
-   $ pre-commit install
+.. code-block:: bash
 
-This installs the Git hook scripts and sets up .git/hooks/pre-commit.
+    uv add --dev pre-commit
+    pre-commit install
 
-Optional (Auto-enable for all repos):
+This sets up Git hooks in `.git/hooks/pre-commit` and ensures checks run automatically.
 
-.. code-block:: console
+Optional: Apply globally to all Git repos:
 
-   $ git config --global init.templateDir ~/.git-template
-   $ pre-commit init-templatedir ~/.git-template
+.. code-block:: bash
+
+    git config --global init.templateDir ~/.git-template
+    pre-commit init-templatedir ~/.git-template
 
 Configuration
-=============
+-------------
 
-Create a file named .pre-commit-config.yaml in the root of your project. Here's an example setup:
+Create a `.pre-commit-config.yaml` at your project root. Your current setup includes:
 
-.. literalinclude:: ../../.pre-commit-config.yaml
-   :language: yaml
-   :caption: .pre-commit-config.yaml
+- **General Hygiene Hooks**:
+  - `check-added-large-files`: Prevents committing files > 500KB
+  - `trailing-whitespace`: Removes trailing spaces
+  - `end-of-file-fixer`: Ensures final newline (skips `.py`)
+  - `mixed-line-ending`: Converts line endings to LF
+  - `check-merge-conflict`: Blocks merge conflict markers
+  - `check-case-conflict`, `check-json`, `check-yaml`, `check-toml`
 
-Hook Categories
-===============
+- **Python-Specific Hooks**:
+  - `ruff`: Linting with auto-fix and Python 3.12 target
+  - `ruff-format`: Consistent formatting
+  - `mypy`: Type checks excluding `docs/` and `tests/`
+  - `debug-statements`: Blocks `breakpoint()` and `pdb`
+  - `pydoclint`: Enforces Google-style docstrings
+  - `flake8`: Validates docstrings in `src/`
 
-General Code Hygiene
---------------------
+- **Git & Commit Message Hooks**:
+  - `no-commit-to-branch`: Prevents direct commits to `main`/`master`
+  - `conventional-pre-commit`: Validates commit messages with required type and scope
 
-- **check-added-large-files**: Prevent committing files over 500 KB.
-- **trailing-whitespace**: Strips trailing spaces from lines (runs in pre-commit, pre-push, and manual stages).
-- **end-of-file-fixer**: Ensures files end with a newline (excludes Python files).
-- **mixed-line-ending**: Converts inconsistent line endings to LF.
-- **detect-private-key**: Warns if a private key is accidentally committed.
-
-Syntax and Format Validation
-----------------------------
-
-- **check-ast**: Ensures Python code is valid syntax.
-- **check-json**, **check-yaml**, **check-toml**: Validates file syntax (YAML check runs with --unsafe flag).
-- **check-case-conflict**: Checks for filename conflicts on case-insensitive filesystems.
-- **check-merge-conflict**: Prevents merge conflict markers from being committed.
-
-Python-Specific Quality
------------------------
-
-- **ruff**: Linting and static analysis with fixes enabled (targets Python 3.12, ignores E203).
-- **ruff-format**: Formats code to Python 3.12 standards.
-- **mypy**: Type-checks Python code with --disallow-untyped-defs (excludes docs directory).
-- **add-trailing-comma**: Adds trailing commas to Python collections (Python 3.6+ compatible).
-- **debug-statements**: Prevents committing Python breakpoint() or pdb calls.
-- **pydoclint**: Enforces Google-style docstrings with strict validation:
-  - Checks argument order and type hints
-  - Validates return and yield sections
-  - Verifies class attributes documentation
-  - Ensures style consistency
-- **flake8**: Additional docstring checks (Google style convention) focused on src/ directory.
-
-Git and Commit Message Hooks
-----------------------------
-
-- **no-commit-to-branch**: Prevents commits to protected branches (main/master).
-- **conventional-pre-commit**: Strict validation of commit messages against Conventional Commits:
-  - Enforces types: feat, fix, chore, refactor, docs, style, test, perf, ci, build, revert
-  - Requires scope
-  - Runs at commit-msg stage
-
-UV Lockfile Integrity
----------------------
-
-- **uv-lock**: Ensures uv-generated lockfiles are up-to-date and correct.
+- **Project Integrity**:
+  - `uv-lock`: Ensures `uv` lockfile integrity
+  - `install-dependencies`: Runs `uv pip install -e .`
+  - `test`: Runs tests via `uv run pytest`
 
 Usage
-=====
+-----
 
-Pre-commit hooks will run automatically on each git commit.
+Hooks run automatically on `git commit`.
 
-To manually run all hooks:
+Run all hooks manually:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ pre-commit run --all-files
+    pre-commit run --all-files
 
-To run on specific files:
+Run on specific files:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ pre-commit run --files path/to/file1.py path/to/file2.py
+    pre-commit run --files path/to/file1.py path/to/file2.py
 
-To run a specific hook:
+Run a specific hook:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ pre-commit run <hook-id>
+    pre-commit run ruff --all-files
 
-Example:
+Skip a hook:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ pre-commit run ruff --all-files
+    SKIP=ruff git commit -m "chore: skip ruff temporarily"
 
-To skip hooks temporarily:
+Update hook versions:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ SKIP=ruff git commit -m "chore: skip ruff temporarily"
+    pre-commit autoupdate
 
-To update all hooks to latest compatible versions:
+Additional Resources
+--------------------
 
-.. code-block:: console
+- Official Docs: https://pre-commit.com/
+- Example Hooks: https://github.com/pre-commit/pre-commit-hooks
+- Conventional Commits: https://www.conventionalcommits.org/
+- Ruff: https://docs.astral.sh/ruff/
+- Mypy: https://mypy.readthedocs.io/
 
-   $ pre-commit autoupdate
+Next Step
+---------
 
-Maintenance Tips
-================
+After setting up `pre-commit`, the next step is to define a **CI pipeline** (e.g., GitHub Actions, GitLab CI) that runs the same checks server-side. This ensures hooks are consistently enforced in pull requests, even if developers forget to install them locally.
 
-- Run pre-commit autoupdate regularly to keep hooks up-to-date.
-- Review .pre-commit-config.yaml and clean up unused hooks as needed.
-- Some hooks (like trailing-whitespace) support multiple stages (pre-commit, pre-push, manual).
-- For Python projects, maintain consistency between Ruff, mypy, and pydoclint configurations.
+Uninstall
+---------
 
-Best Practices
-==============
+To remove pre-commit from your project:
 
-- Make pre-commit mandatory in team workflows (e.g., through CI).
-- Never bypass conventional-pre-commit without valid reason.
-- Combine with EditorConfig for consistent formatting.
-- Use Ruff as the primary linter with mypy for type checking.
-- Enforce comprehensive docstrings with pydoclint's Google style checks.
-- Ensure developers install hooks with pre-commit install after cloning.
+.. code-block:: bash
 
-Troubleshooting
-===============
+    pre-commit uninstall
+    uv remove --dev pre-commit
 
-- **Hook failed**? Run with --all-files to debug.
-- **Permissions error**? Ensure Python and pre-commit are installed in your environment.
-- **Hook not running**? Confirm .git/hooks/pre-commit exists and is executable.
-- **Need debugging info?**
+To delete all hook caches:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ pre-commit run --all-files -v
-
-- **Docstring issues**? Check both pydoclint and flake8-docstrings outputs.
-- **Type checking errors**? Verify mypy configuration matches project standards.
-
-Conclusion
-==========
-
-Pre-commit is a powerful automation tool that keeps your codebase clean and standardized. The current configuration provides:
-- Robust Python quality checks (Ruff, mypy, pydoclint)
-- Comprehensive docstring validation
-- Strict commit message conventions
-- File integrity and syntax verification
-By integrating these checks early in your development lifecycle, you ensure consistency and reduce code review burdens.
+    pre-commit clean
