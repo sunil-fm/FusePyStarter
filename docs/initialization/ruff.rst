@@ -29,11 +29,6 @@ Use `uv` or `pip` to install Ruff as a development dependency:
 
     uv add --dev ruff
 
-Or:
-
-.. code-block:: bash
-
-    pip install ruff
 
 Configuration
 -------------
@@ -187,10 +182,4 @@ To remove Ruff from your project:
 
 .. code-block:: bash
 
-    uv remove ruff
-
-Or if installed via pip:
-
-.. code-block:: bash
-
-    pip uninstall ruff
+    uv remove --dev ruff
