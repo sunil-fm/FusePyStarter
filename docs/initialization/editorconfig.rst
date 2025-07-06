@@ -1,12 +1,12 @@
-============
+==========================
 EditorConfig Configuration
-============
+==========================
 
 .. meta::
    :description: Guidelines for setting up consistent coding styles across editors and IDEs using EditorConfig.
 
-Overview
---------
+Introduction
+------------
 
 EditorConfig helps maintain consistent coding styles across different editors and IDEs when multiple developers work on the same project. The system consists of:
 
@@ -19,23 +19,29 @@ Key Features
 - Hierarchical configuration (parent directory inheritance)
 - Cross-platform support (Windows/macOS/Linux)
 
-Configuration Discovery
-----------------------
+Installation
+------------
 
-When opening a file, EditorConfig:
+To enable EditorConfig support:
 
-1. Looks for ``.editorconfig`` in the file's directory
-2. Searches parent directories recursively
-3. Stops when either:
+1. Check if your code editor has native support (most modern editors do).
+2. If not, install the appropriate plugin: https://editorconfig.org/#download
+
+.. note::
+   Windows users should create ``.editorconfig.`` (with trailing dot), which Explorer will rename correctly.
+
+Configuration
+-------------
+
+EditorConfig discovers its configuration by:
+
+1. Looking for ``.editorconfig`` in the file's directory
+2. Searching parent directories recursively
+3. Stopping when:
    - The root directory is reached, or
    - A file containing ``root=true`` is found
 
-.. note:: Windows users should create ``.editorconfig.`` (with trailing dot) which Explorer will rename correctly.
-
-Configuration Rules
--------------------
-
-Create ``.editorconfig`` with these settings:
+Create a ``.editorconfig`` file with the following settings:
 
 .. code-block:: ini
 
@@ -60,7 +66,7 @@ Create ``.editorconfig`` with these settings:
     [*.py]
     max_line_length = 88
 
-    # Indendation for json, yml, yaml, and toml
+    # Indentation for json, yml, yaml, and toml
     [*.{json,yml,yaml,toml}]
     indent_size = 2
 
@@ -76,32 +82,35 @@ Create ``.editorconfig`` with these settings:
     [Makefile]
     indent_style = tab
 
+Usage
+-----
 
-Implementation Notes
---------------------
+**Precedence Rules**:
+- Last matching section takes priority
+- Files closer to the target override more distant configurations
 
-1. **Precedence Rules**:
-   - Last matching section takes priority
-   - Closer files override parent directory settings
+**Supported Editors**:
+- Most popular editors (VS Code, Atom, Sublime Text, etc.) have built-in or plugin-based support
 
-2. **Editor Support**:
-   - Most modern editors have native support
-   - Plugins available for others (see https://editorconfig.org/#download)
-
-Next Steps
-----------
-
-.. admonition:: Proceed to Linting Setup
-
-    To configure Python linting:
-
-    .. code-block:: bash
-
-        git stash          # Save current changes
-        git checkout init/lint/flake8  # Switch to linting configuration
+For installation instructions per editor, refer to the [official EditorConfig downloads page](https://editorconfig.org/#download).
 
 Additional Resources
 --------------------
+
 - Official Documentation: https://editorconfig.org/
-- Python Style Guide: https://peps.python.org/pep-0008/
+- Python Style Guide (PEP8): https://peps.python.org/pep-0008/
 - Black Formatter: https://black.readthedocs.io/
+
+Next Step
+---------
+After setting up `.editorconfig`, the next step is to configure **Ruff** — a fast Python linter and formatter. Ruff enforces consistent code style, catches common errors, and integrates rules from tools like Flake8, isort, and Black.
+
+It ensures your Python code remains clean, readable, and compliant with modern best practices.
+
+Uninstall
+---------
+
+To disable EditorConfig:
+
+- Remove or rename the ``.editorconfig`` file
+- Disable or uninstall the plugin from your code editor (if applicable)

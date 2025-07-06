@@ -1,18 +1,26 @@
 PyFoundry
 =========
 
-**A modern Python project forge starting with quality at the core.**
+PyFoundry is a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
 
-PyFoundry is a work-in-progress Python project template that focuses on doing things right from the start.
-This early phase begins with a consistent code style via `.editorconfig`, and will expand to include full tooling for testing, formatting, linting, deployment, and documentation.
+Why PyFoundry?
+--------------
 
-📁 Repository Links
+- **Consistency:** Includes EditorConfig and Ruff to maintain uniform code style and linting across your team.
+- **Safety:** Integrates MyPy for static type checking to catch bugs early.
+- **Automation:** Pre-configured pre-commit hooks automate code quality checks.
+- **Productivity:** Environment management and logging setup included for scalable projects.
+- **Quality:** Built-in testing and code coverage ensure reliability and maintainability.
+
+With PyFoundry, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
+
+Repository Links
 -------------------
 
-- 💻 **Source Code**: https://github.com/ghimiresunil/PyFoundry/tree/main
-- 🐞 **Issue Tracker**: https://github.com/ghimiresunil/PyFoundry/issues
+- **Source Code**: https://github.com/ghimiresunil/PyFoundry/tree/main
+- **Issue Tracker**: https://github.com/ghimiresunil/PyFoundry/issues
 
-📂 Contents
+Contents
 -----------
 
 Project Initialization
@@ -38,7 +46,14 @@ The core project setup integrates tools for configuration, CLI handling, testing
 - `pytest-cov`_ — Plugin for integrating coverage with pytest.
 - `tox`_ — Automates testing across multiple Python environments.
 
-⚙️ Getting Started with `uv`
+Project deployment
+~~~~~~~~~~~~~~~~~~
+
+Build docs with Sphinx, automate with GitHub Actions, and publish on GitHub Pages.
+
+- `sphinx`_ — For generating structured project documentation.
+
+Getting Started with uv
 ----------------------------
 
 1. **Clone the repository**
@@ -61,16 +76,60 @@ The core project setup integrates tools for configuration, CLI handling, testing
 
       uv sync
 
-🛠️ Coming Soon
+Environment Examples
+--------------------
+
+Sample `.env.example` file for Dynaconf environment:
+
+.. code-block:: ini
+
+   ENV_FOR_DYNACONF=dev
+   DYNACONF_APP_NAME=PyFoundry
+
+Sample `.secrets.example` file:
+
+.. code-block:: ini
+
+   [default]
+   access_key = "my_access_key"
+   secret_key = "my_secret_key"
+   db_user_name = "username"
+   db_password = "password"
+
+   [dev]
+   access_key = "my_access_key-dev"
+   secret_key = "my_secret_key-dev"
+   db_user_name = "username-dev"
+   db_password = "password-dev"
+
+   [stage]
+   access_key = "my_access_key-stg"
+   secret_key = "my_secret_key-stg"
+   db_user_name = "username-stg"
+   db_password = "password-stg"
+
+   [prod]
+   access_key = "my_access_key-prod"
+   secret_key = "my_secret_key-prod"
+   db_user_name = "username-prod"
+   db_password = "password-prod"
+
+.. note::
+
+   Replace ``.env.examples`` with ``.env`` to configure your working environment, and replace
+   ``.secrets.examples.toml`` with ``.secrets.toml`` to store your actual secret values.
+
+   Make sure to exclude ``.secrets.toml`` from version control to keep your secrets secure.
+
+Coming Soon
 --------------
 
 Planned future integrations:
 
-- **Sphinx** — For generating structured project documentation.
 - **GitHub Actions** — CI/CD workflows for testing, linting, and deployment.
 - **GitHub Pages** — Deploy documentation or project pages directly from the repository.
 
-📬 Contribute or Follow Along
+Contribute or Follow Along
 -----------------------------
 
 PyFoundry is evolving. Star the repository, follow development, or contribute by submitting issues and pull requests!
@@ -86,3 +145,4 @@ PyFoundry is evolving. Star the repository, follow development, or contribute by
 .. _coverage: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/coverage.rst
 .. _pytest-cov: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/pytest-cov.rst
 .. _tox: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/tox.rst
+.. _sphinx: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/deployment/sphinx.rst

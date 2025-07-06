@@ -1,67 +1,64 @@
-
 ================
 Python Logging
 ================
 
-A structured and reusable logging utility for Python applications, built using a singleton pattern and enriched with an execution logging decorator.
+Introduction
+------------
 
-Why Logging?
-============
+Python’s built-in `logging` module provides a flexible framework for emitting log messages from Python programs. Logging is essential for monitoring, debugging, and auditing your application without relying on `print()` statements. This setup uses a singleton logger pattern with environment-specific configuration via `Dynaconf`, and includes a decorator for tracing function execution.
 
-Logging is critical for understanding, debugging, and monitoring applications in development and production. It enables you to:
+Key Features
+------------
 
-- Record important runtime events and application state
-- Track errors and diagnose issues
-- Measure performance metrics (e.g., execution time)
-- Enable observability without altering control flow
-- Provide audit trails for sensitive operations
+- Uses **Python standard logging** (no external logging libraries)
+- Singleton logger pattern to avoid duplicated log handlers
+- Environment-aware configuration using **Dynaconf**
+- Supports runtime log level switching (e.g., DEBUG in dev, WARNING in prod)
+- Includes a `log_execution` decorator for:
+  - Function entry and exit tracing
+  - Argument and return value logging
+  - Exception logging
+  - Execution time measurement
 
-Overview
-========
+Installation
+------------
 
-This module includes two core utilities:
+Make sure `dynaconf` is already install to manage logging configurations:
 
-- ``AppLogger``: A singleton-based logger using Dynaconf configuration, with thread-safe instantiation and configurable log level/format.
-- ``log_execution``: A decorator that logs detailed runtime metadata for functions or methods, such as arguments, execution time, return value, and exceptions.
+.. code-block:: bash
 
-Key Concepts
-============
+    uv add dynaconf
 
-Singleton Logger
-----------------
+Configuration
+-------------
 
-Only one logger instance is created and reused across the application. This avoids:
+Define logging settings using `Dynaconf`, e.g., in `settings.toml`:
 
-- Duplicate log entries
-- Re-attached handlers
-- Inconsistent configurations
+.. code-block:: toml
 
-Dynaconf Integration
---------------------
+    [default]
+    log_format = "[{levelname}] {asctime} - {message}"
+    log_datefmt = "%Y-%m-%d %H:%M:%S"
 
-The logger is configured using `Dynaconf` settings (e.g., log level and format), allowing environment-specific configurations.
+    [dev]
+    log_level = "DEBUG"
 
-Environment-Based Logging Levels
---------------------------------
+    [stage]
+    log_level = "INFO"
 
-Define log levels per environment to reduce noise and improve focus:
+    [prod]
+    log_level = "WARNING"
 
-- **Development**: ``DEBUG`` (all messages; helpful for debugging)
-- **Staging**: ``INFO`` (key application flow and test validation logs)
-- **Production**: ``WARNING`` and above (essential alerts and failures only)
+Set the environment variable to control which config is loaded:
 
-Execution Logging Decorator
----------------------------
+.. code-block:: bash
 
-The `log_execution` decorator:
-
-- Logs method/function entry and exit
-- Logs positional and keyword arguments
-- Measures and logs execution time
-- Captures and logs exceptions and stack traces
+    export ENV_FOR_DYNACONF=development
 
 Usage
-=====
+-----
+
+Import and use the logger across modules:
 
 .. code-block:: python
 
@@ -71,9 +68,9 @@ Usage
     def calculate_area(length, width):
         return length * width
 
-    logger.info("Started computation")
+    logger.info("Started area calculation")
 
-Output example:
+Example output:
 
 .. code-block:: text
 
@@ -82,71 +79,29 @@ Output example:
     INFO     calculate_area completed in 0.0001s
     DEBUG    Return: 15
 
-AppLogger Class
-===============
-
-.. autoclass:: src.decorators.logging_service.AppLogger
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-log_execution Decorator
-=======================
-
-.. autofunction:: src.decorators.logging_service.log_execution
-
-Comparison: Python Logging vs. Loguru
-=====================================
-
-.. list-table::
-   :widths: 25 35 40
-   :header-rows: 1
-
-   * - Feature
-     - Python Standard Logging
-     - Loguru
-   * - Configuration
-     - Verbose and boilerplate-heavy
-     - Simple, no configuration needed
-   * - Flexibility
-     - Highly customizable (handlers, filters, formatters)
-     - Batteries-included; automatic context logging
-   * - Performance
-     - Fine-tuned, low-level control
-     - More overhead due to rich features
-   * - Typing and IDE Support
-     - Fully typed, static analysis friendly
-     - Less typing, more magic
-   * - Integration
-     - Easily integrates into existing enterprise apps
-     - Better suited for new projects and scripts
-   * - Decorator Support
-     - Requires manual implementation
-     - Built-in with `logger.catch` and decorators
-
-Logging Best Practices
-======================
-
-- Use centralized logging settings (e.g., Dynaconf)
-- Match log levels to environment (Debug in Dev, Info in Stage, Warning in Prod)
-- Use `INFO` for app flow and operational events
-- Use `DEBUG` for internal diagnostics and verbose output
-- Use `WARNING`, `ERROR`, and `CRITICAL` for failure levels
-- Avoid using `print()` for production logging
-- Never log sensitive data (e.g., credentials, PII)
-- Use exception logging (`logger.exception()` or `log_execution`) for error traces
-- Keep logs structured and consistent for future parsing
-
-Package Initialization
-======================
-
-The `src.decorators.__init__.py` exposes logging utilities for convenient imports:
+To get the logger instance anywhere:
 
 .. code-block:: python
 
-    from src.decorators.logging_service import AppLogger, log_execution
+    from src.decorators import logger
 
-    app_logger = AppLogger()
-    logger = app_logger.get_logger()
+    logger.warning("Something might be wrong")
 
-    __all__ = ["logger", "log_execution"]
+Additional Resources
+--------------------
+
+- Python Logging Docs: https://docs.python.org/3/library/logging.html
+
+Next Step
+---------
+
+Now that logging is in place, the next step is to integrate **pytest** — a simple yet powerful testing framework for writing unit, functional, and integration tests.
+
+Uninstall
+---------
+
+If you wish to remove logging-related configuration:
+
+.. code-block:: bash
+
+    uv remove dynaconf

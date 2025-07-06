@@ -1,26 +1,21 @@
-
 =====================
 Testing with pytest
 =====================
 
-The **pytest** framework simplifies writing small, readable tests and scales to support
-complex functional testing for applications and libraries.
+Introduction
+------------
+
+**pytest** is a simple yet powerful testing framework for Python. It encourages concise, readable test code and scales to support complex functional testing for applications and libraries. It provides expressive assertions, auto-discovery, and a rich fixture system, making it ideal for both small and large projects.
 
 Key Features
 ------------
 
-- Detailed output for failing assert statements (no need to remember ``self.assert*`` methods)
-- Auto-discovery of test modules and functions
-- Rich and flexible fixture model for test setup and reuse
-- Seamless support for ``unittest`` and ``nose`` test suites
-- Compatible with Python 3.5+ and PyPy 3
-- Thriving plugin ecosystem (315+ plugins) and active community
-
-For full documentation, visit: https://docs.pytest.org/en/stable/
-
-.. note::
-
-   pytest rewrites assert statements to provide rich introspection output on failure, which makes debugging test failures much easier.
+- Rich assert introspection (no need for self.assert* methods)
+- Auto-discovery of test files, classes, and functions
+- Flexible fixture model for shared test setup and teardown
+- Compatible with `unittest` and `nose` test suites
+- Thriving plugin ecosystem (e.g., `pytest-cov`, `pytest-mock`)
+- Seamless integration with `pre-commit` and CI tools
 
 Installation
 ------------
@@ -29,25 +24,28 @@ Use `uv` to add `pytest` as a development dependency:
 
 .. code-block:: console
 
-    $ uv add --dev pytest
+    uv add --dev pytest
 
 Configuration
 -------------
 
-Add the following section to your ``pyproject.toml``:
+Configure `pytest` through `pyproject.toml`:
 
 .. code-block:: toml
 
     [tool.pytest.ini_options]
     testpaths = ["tests"]
+    markers = [
+        "slow: marks tests as slow",
+    ]
 
-This tells pytest to look for tests in the ``tests/`` directory.
+This instructs `pytest` to discover tests in the `tests/` directory and register a custom `slow` marker.
 
-Usage Example
--------------
+Usage
+-----
 
-Let's write tests for two simple temperature conversion functions:
-``celsius_to_fahrenheit`` and ``fahrenheit_to_celsius``.
+1. Writing Tests
+^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -56,40 +54,22 @@ Let's write tests for two simple temperature conversion functions:
 
     @pytest.mark.parametrize(
         "celsius, expected_fahrenheit",
-        [
-            (0, 32.0),       # Freezing point
-            (100, 212.0),    # Boiling point
-            (-40, -40.0),    # Identical in both scales
-            (37, 98.6),      # Human body temperature
-            (25.5, 77.9),    # Arbitrary float
-        ],
+        [(0, 32.0), (100, 212.0), (-40, -40.0), (37, 98.6), (25.5, 77.9)],
     )
     def test_celsius_to_fahrenheit(celsius, expected_fahrenheit):
-        result = celsius_to_fahrenheit(celsius)
-        assert result == pytest.approx(expected_fahrenheit)
+        assert celsius_to_fahrenheit(celsius) == pytest.approx(expected_fahrenheit)
 
     @pytest.mark.parametrize(
         "fahrenheit, expected_celsius",
-        [
-            (32, 0.0),
-            (212, 100.0),
-            (-40, -40.0),
-            (98.6, 37.0),
-            (77.9, 25.5),
-        ],
+        [(32, 0.0), (212, 100.0), (-40, -40.0), (98.6, 37.0), (77.9, 25.5)],
     )
     def test_fahrenheit_to_celsius(fahrenheit, expected_celsius):
-        result = fahrenheit_to_celsius(fahrenheit)
-        assert result == pytest.approx(expected_celsius)
+        assert fahrenheit_to_celsius(fahrenheit) == pytest.approx(expected_celsius)
 
-Fixtures
---------
-
-Fixtures are used to manage setup and teardown logic for tests.
+2. Fixtures
+^^^^^^^^^^^
 
 .. code-block:: python
-
-    import pytest
 
     @pytest.fixture
     def sample_data():
@@ -98,27 +78,24 @@ Fixtures are used to manage setup and teardown logic for tests.
     def test_sample_data(sample_data):
         assert sample_data["name"] == "Sunil"
 
-Markers
--------
+3. Markers
+^^^^^^^^^^
 
-pytest allows tests to be grouped or filtered using markers.
+Use markers to group or filter tests:
 
 .. code-block:: python
 
-    import pytest
-
     @pytest.mark.slow
     def test_large_dataset():
-        # time-consuming test
         ...
 
-To run only tests marked as "slow":
+Run only slow tests:
 
 .. code-block:: console
 
-    $ pytest -m slow
+    pytest -m slow
 
-To register custom markers in ``pyproject.toml``:
+Register custom markers in ``pyproject.toml``:
 
 .. code-block:: toml
 
@@ -127,58 +104,49 @@ To register custom markers in ``pyproject.toml``:
         "slow: marks tests as slow",
     ]
 
-Common CLI Options
-------------------
+4. Common CLI Options
+^^^^^^^^^^^^^^^^^^^^^
 
-- ``-v``: Increase verbosity
-- ``-q``: Decrease verbosity
-- ``-k <expression>``: Run tests matching the expression
-- ``-m <marker>``: Run tests matching a marker
-- ``--maxfail=<num>``: Stop after N failures
-- ``--disable-warnings``: Suppress warnings
+- `-v`: Verbose mode
+- `-q`: Quiet mode
+- `-k <expr>`: Filter by name substring
+- `-m <marker>`: Run tests with marker
+- `--maxfail=<N>`: Stop after N failures
+- `--disable-warnings`: Suppress warnings
 
 Example:
 
 .. code-block:: console
 
-    $ pytest -v -k "fahrenheit" --maxfail=2 --disable-warnings
+    pytest -v -k "fahrenheit" --maxfail=2 --disable-warnings
 
-Naming Conventions
-------------------
+5. Naming Conventions
+^^^^^^^^^^^^^^^^^^^^^
 
-pytest will automatically discover tests that follow these patterns:
+pytest automatically discovers tests that match:
 
-- Files named ``test_*.py`` or ``*_test.py``
-- Functions prefixed with ``test_``
-- Classes prefixed with ``Test`` (without ``__init__`` methods)
+- Files named `test_*.py` or `*_test.py`
+- Functions prefixed with `test_`
+- Classes prefixed with `Test` (no `__init__` method)
 
-Running Tests
--------------
+6. Running Tests
+^^^^^^^^^^^^^^^^
 
-To run all tests, simply use:
+Run all tests using:
 
 .. code-block:: console
 
-    $ uv run pytest
+    uv run pytest
 
-pytest will automatically discover and run tests matching the naming conventions listed above.
+7. Integration with pre-commit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Integration with pre-commit
----------------------------
-
-To run tests automatically before every commit, add the following to your ``.pre-commit-config.yaml``:
+Add the following hook to `.pre-commit-config.yaml`:
 
 .. code-block:: yaml
 
     - repo: local
       hooks:
-        - id: install-dependencies
-          name: Install Dependencies
-          entry: uv pip install -e .
-          language: python
-          always_run: true
-          pass_filenames: false
-
         - id: test
           name: Run tests
           entry: uv run pytest
@@ -187,18 +155,24 @@ To run tests automatically before every commit, add the following to your ``.pre
           always_run: true
           pass_filenames: false
 
-This ensures dependencies are installed and tests are executed before every commit, helping catch issues early.
+This ensures that your test suite runs before every commit.
 
-Uninstallation
---------------
+Additional Resources
+--------------------
 
-To remove pytest:
+- Pytest documentation: https://docs.pytest.org/
+- Parametrization guide: https://docs.pytest.org/en/latest/how-to/parametrize.html
+
+Next Step
+---------
+
+Now that testing is set up, the next step is to integrate **test coverage** using the `coverage` tool. This helps ensure your tests are exercising all critical parts of your code.
+
+Uninstall
+---------
+
+To remove `pytest`:
 
 .. code-block:: console
 
-    $ uv remove --dev pytest
-
-Conclusion
-----------
-
-pytest is a powerful, flexible, and widely adopted testing tool that helps you maintain code quality and catch bugs early through simple yet expressive tests.
+    uv remove --dev pytest
