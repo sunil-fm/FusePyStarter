@@ -20,9 +20,9 @@ top of the page at `GitHub Help`_.
    :maxdepth: 2
    :caption: Project Setup
 
+   setup/dynaconf
    setup/fire
    setup/logging
-   setup/dynaconf
    setup/pytest
    setup/coverage
    setup/pytest-cov
