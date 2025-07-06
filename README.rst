@@ -46,6 +46,13 @@ The core project setup integrates tools for configuration, CLI handling, testing
 - `pytest-cov`_ — Plugin for integrating coverage with pytest.
 - `tox`_ — Automates testing across multiple Python environments.
 
+Project deployment
+~~~~~~~~~~~~~~~~~~
+
+Build docs with Sphinx, automate with GitHub Actions, and publish on GitHub Pages.
+
+- `sphinx`_ — For generating structured project documentation.
+
 Getting Started with uv
 ----------------------------
 
@@ -119,7 +126,6 @@ Coming Soon
 
 Planned future integrations:
 
-- **Sphinx** — For generating structured project documentation.
 - **GitHub Actions** — CI/CD workflows for testing, linting, and deployment.
 - **GitHub Pages** — Deploy documentation or project pages directly from the repository.
 
@@ -139,3 +145,4 @@ PyFoundry is evolving. Star the repository, follow development, or contribute by
 .. _coverage: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/coverage.rst
 .. _pytest-cov: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/pytest-cov.rst
 .. _tox: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/setup/tox.rst
+.. _sphinx: https://github.com/ghimiresunil/PyFoundry/blob/main/docs/deployment/sphinx.rst
