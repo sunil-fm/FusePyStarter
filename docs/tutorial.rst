@@ -28,6 +28,12 @@ top of the page at `GitHub Help`_.
    setup/pytest-cov
    setup/tox
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Project Deployment
+
+   deployment/sphinx
+
 .. _GitHub account: https://github.com/
 .. _PyPI: https://pypi.python.org/pypi
 .. _GitHub Help: https://help.github.com/
