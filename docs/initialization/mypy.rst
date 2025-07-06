@@ -1,6 +1,6 @@
-============
+==================
 Type Hinting: MyPy
-============
+==================
 
 .. meta::
     :description: Using mypy for static type checking and enforcing type correctness in Python code.
