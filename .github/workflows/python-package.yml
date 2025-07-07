@@ -2,10 +2,10 @@ name: Branch Tests
 
 on:
   push:
-    branch-ignore:
+    branches-ignore:
       - main
-  pull-request:
-    brnch-ignore:
+  pull_request:
+    branches-ignore:
       - main
 
 jobs:
