@@ -38,4 +38,4 @@ jobs:
         uses: pre-commit/action@v3.0.1
 
       - name: Run tests with Tox
-        uses: uv run tox -e py
+        run: uv run tox -e py
