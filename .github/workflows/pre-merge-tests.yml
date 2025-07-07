@@ -1,4 +1,4 @@
-name: Branch Tests
+name: Pre-Merge Checks
 
 on:
   push:
