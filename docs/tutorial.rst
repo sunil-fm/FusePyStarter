@@ -33,6 +33,7 @@ top of the page at `GitHub Help`_.
    :caption: Project Deployment
 
    deployment/sphinx
+   deployment/gh-actions
 
 .. _GitHub account: https://github.com/
 .. _PyPI: https://pypi.python.org/pypi
