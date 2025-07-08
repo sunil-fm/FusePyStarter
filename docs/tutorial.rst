@@ -34,6 +34,7 @@ top of the page at `GitHub Help`_.
 
    deployment/sphinx
    deployment/gh-actions
+   deployment/gh-pages
 
 .. _GitHub account: https://github.com/
 .. _PyPI: https://pypi.python.org/pypi
