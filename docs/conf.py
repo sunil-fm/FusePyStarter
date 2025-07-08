@@ -1,8 +1,12 @@
 """Sphinx configuration for building project documentation."""
 
+import os
+import sys
 from pathlib import Path
 
 import toml
+
+sys.path.insert(0, os.path.abspath("../"))
 
 
 def _get_project_meta():
