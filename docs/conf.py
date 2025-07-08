@@ -6,7 +6,7 @@ from pathlib import Path
 
 import toml
 
-sys.path.insert(0, os.path.abspath("../src"))
+sys.path.insert(0, os.path.abspath("../src/"))
 
 
 def _get_project_meta():
