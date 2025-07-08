@@ -38,7 +38,7 @@ Makefile
 
 We have to execute quite a number of commands to generate the docs. To make this process easier, let's create a `Makefile`.
 
-.. code-block:: makefile
+.. code-block:: text
 
     .PHONY: help docs
     .DEFAULT_GOAL := help
@@ -79,7 +79,7 @@ We have to execute quite a number of commands to generate the docs. To make this
 GitHub Actions Workflow
 -----------------------
 
-Add the following to `.github/workflows/docs.yml`:
+Add the following to `.github/workflows/gh-pages.yml`:
 
 .. code-block:: yaml
 
