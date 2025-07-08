@@ -1,4 +1,4 @@
-PyFoundry Boiler Codebase
+FusePyStarter Boiler Codebase
 =========================
 
 .. toctree::

@@ -1,10 +1,10 @@
-PyFoundry
-=========
+FusePyStarter
+=============
 
-PyFoundry is a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
+FusePyStarteris a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
 
-Why PyFoundry?
---------------
+Why FusePyStarter?
+------------------
 
 - **Consistency:** Includes EditorConfig and Ruff to maintain uniform code style and linting across your team.
 - **Safety:** Integrates MyPy for static type checking to catch bugs early.
@@ -17,8 +17,8 @@ With PyFoundry, starting your Python project is no longer a hurdle but a streaml
 Repository Links
 -------------------
 
-- **Source Code**: https://github.com/ghimiresunil/PyFoundry/tree/main
-- **Issue Tracker**: https://github.com/ghimiresunil/PyFoundry/issues
+- **Source Code**: https://github.com/sunil-fm/FusePyStarter.git
+- **Issue Tracker**: https://github.com/sunil-fm/FusePyStarter/issues
 
 Contents
 -----------
@@ -61,8 +61,8 @@ Getting Started with uv
 
    .. code-block:: bash
 
-      git clone https://github.com/ghimiresunil/PyFoundry.git
-      cd PyFoundry
+      git clone https://github.com/sunil-fm/FusePyStarter.git
+      cd FusePyStarter
 
 2. **Create a virtual environment**
 
@@ -85,7 +85,7 @@ Sample `.env.example` file for Dynaconf environment:
 .. code-block:: ini
 
    ENV_FOR_DYNACONF=dev
-   DYNACONF_APP_NAME=PyFoundry
+   DYNACONF_APP_NAME=FusePyStarter
 
 Sample `.secrets.example` file:
 
