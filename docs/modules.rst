@@ -1,7 +1,8 @@
 FusePyStarter Boiler Codebase
-=========================
+=============================
 
 .. toctree::
    :maxdepth: 4
 
-   src
+   src.temperature
+   src.decorators
