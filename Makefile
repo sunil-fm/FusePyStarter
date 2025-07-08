@@ -29,7 +29,7 @@ help:  ## Show this help message
 
 docs:  ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/src*.rst
-	sphinx-apidoc -o docs/ src
+	sphinx-apidoc -o docs/ src/
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
