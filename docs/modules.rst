@@ -5,3 +5,4 @@ FusePyStarter Boiler Codebase
    :maxdepth: 4
 
    decorators
+   temperature
