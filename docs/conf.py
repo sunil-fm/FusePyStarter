@@ -9,7 +9,13 @@ sys.path.insert(0, os.path.abspath("../"))
 
 
 def _get_project_meta():
-    return toml.load("pyproject.toml")["project"]
+    try:
+        pyproject_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "pyproject.toml")
+        )
+        return toml.load(pyproject_path)["project"]
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Could not find pyproject.toml at {pyproject_path}")
 
 
 pkg_meta = _get_project_meta()
