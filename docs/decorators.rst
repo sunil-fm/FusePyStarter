@@ -1,7 +1,7 @@
 Logger Module
 =============
 
-.. automodule:: jl.decorators
+.. automodule:: src.decorators
    :members:
    :undoc-members:
    :show-inheritance:
