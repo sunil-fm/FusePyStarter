@@ -1,21 +1,7 @@
-Decorators package
-==================
+Logger Module
+=============
 
-Submodules
-----------
-
-decorators.logging\_service module
----------------------
-
-.. automodule:: decorators.logging_service
-   :members:
-   :undoc-members:
-   :show-inheritnce:
-
-Module contents
----------------
-
-.. automodule:: decorators
+.. automodule:: jl.decorators
    :members:
    :undoc-members:
    :show-inheritance:
