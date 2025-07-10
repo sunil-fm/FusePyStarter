@@ -13,6 +13,20 @@ authors = [{ name = "Sunil Ghimire", email = "sunil.ghimire@fusemachines.com" }]
 readme = "README.rst"
 requires-python = ">=3.12"
 dependencies = ["dynaconf>=3.2.11", "fire>=0.7.0"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3 :: Only",
+]
 
 [dependency-groups]
 dev = [
@@ -31,7 +45,9 @@ dev = [
 temp-convert = "src.temperature._cli:main"
 
 [project.urls]
-homepage = "https://github.com/sunil-fm/FusePyStarter.git"
+Homepage = "https://sunil-fm.github.io/FusePyStarter/"
+Repository = "https://github.com/sunil-fm/FusePyStarter"
+Documentation = "https://sunil-fm.github.io/FusePyStarter/"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
