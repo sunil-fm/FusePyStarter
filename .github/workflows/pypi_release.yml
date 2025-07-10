@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write # This enables OIDC authentication
+      id-token: write
       contents: read
 
     steps:
@@ -30,7 +30,5 @@ jobs:
         run: hatch build
 
       - name: Publish to PyPI
-        run: hatch publish --no-prompt -r pypi
-        env:
-          # This tells Hatch to use the OIDC token
-          HATCH_INDEX_AUTH: ""
+        # For PyPI Trusted Publishing, no secrets needed
+        run: hatch publish -r pypi --no-prompt
