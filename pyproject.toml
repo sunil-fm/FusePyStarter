@@ -9,16 +9,6 @@ exclude = ["/.github", "/docs", "/tests"]
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 
-[tool.hatch.publish]
-# Disable username/password prompt
-no-prompt = true
-
-# Corrected publish configuration
-[tool.hatch.publish.repositories.pypi]
-url = "https://upload.pypi.org/legacy/"
-# For trusted publishing (no token needed when using GitHub OIDC)
-provider = "pypi"
-
 [project]
 name = "FusePyStarter"
 version = "0.1.0"
