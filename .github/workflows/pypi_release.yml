@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    branches-ignore:
-      - main
+    tags:
+      - "v*.*.*"
 
 jobs:
   publish:
@@ -31,4 +31,4 @@ jobs:
 
       - name: Publish to PyPI
         # For PyPI Trusted Publishing, no secrets needed
-        run: hatch publish --no-prompt
+        run: hatch publish --no-prompt --publisher trusted
