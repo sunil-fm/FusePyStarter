@@ -1,0 +1,34 @@
+name: Release
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  publish:
+    name: Build and Publish to PyPI
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Hatch
+        run: pip install hatch
+
+      - name: Build with Hatch
+        run: hatch build
+
+      - name: Publish to PyPI
+        # For PyPI Trusted Publishing, no secrets needed
+        run: hatch publish --no-input
