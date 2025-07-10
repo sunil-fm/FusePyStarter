@@ -6,29 +6,25 @@ on:
       - "v*.*.*"
 
 jobs:
-  publish:
-    name: Build and Publish to PyPI
+  publish_release:
+    name: 📤 Publish release
     runs-on: ubuntu-latest
 
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
-      - name: Checkout code
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+
+      - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
+      - name: 🥚 Install Hatch
+        uses: pypa/hatch@install
 
-      - name: Install Hatch
-        run: pip install hatch
+      - name: 📦 Build marimo-base
+        run: hatch build --clean
 
-      - name: Build with Hatch
-        run: hatch build
-
-      - name: Publish to PyPI
-        # For PyPI Trusted Publishing, no secrets needed
-        run: hatch publish -r pypi
+      - name: 📤 Upload to PyPI
+        env:
+          HATCH_INDEX_USER: ${{ secrets.PYPI_USER }}
+          HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
+        run: hatch publish
