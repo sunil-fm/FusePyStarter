@@ -20,7 +20,7 @@ Installation
 
 First, make sure the following tools are installed:
 
-- Python (>=3.7)
+- Python (>=3.12)
 - `uv` — used for dependency management
 - Sphinx — documentation generator
 
