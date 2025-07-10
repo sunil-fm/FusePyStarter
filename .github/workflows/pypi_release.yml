@@ -31,4 +31,4 @@ jobs:
 
       - name: Publish to PyPI
         # For PyPI Trusted Publishing, no secrets needed
-        run: hatch publish --no-prompt --publisher trusted
+        run: hatch publish --no-prompt
