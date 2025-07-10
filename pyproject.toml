@@ -11,7 +11,7 @@ packages = ["src"]
 
 [project]
 name = "FusePyStarter"
-version = "0.1.0"
+version = "0.1.1"
 description = "A modern Python project forge with pre-configured tooling and CI/CD."
 authors = [{ name = "Sunil Ghimire", email = "sunil.ghimire@fusemachines.com" }]
 readme = "README.rst"
