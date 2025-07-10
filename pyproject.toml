@@ -9,6 +9,9 @@ exclude = ["/.github", "/docs", "/tests"]
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 
+[tool.hatch.publish]
+# Disable username/password prompt
+no-prompt = true
 
 # Corrected publish configuration
 [tool.hatch.publish.repositories.pypi]
