@@ -4,4 +4,4 @@ from configs.config import settings
 
 ENV = settings.get("ENV_FOR_DYNACONF", "dev")
 
-__version__ = "0.1.0"
+__version__ = "v0.1.2"
