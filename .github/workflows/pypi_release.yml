@@ -20,7 +20,7 @@ jobs:
       - name: 🥚 Install Hatch
         uses: pypa/hatch@install
 
-      - name: 📦 Build marimo-base
+      - name: 📦 Build FusePyStarter
         run: hatch build --clean
 
       - name: 📤 Upload to PyPI
@@ -28,3 +28,9 @@ jobs:
           HATCH_INDEX_USER: ${{ secrets.PYPI_USER }}
           HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
         run: hatch publish
+
+      - name: 📤 Upload to TestPyPI
+        env:
+          HATCH_INDEX_USER: ${{ secrets.TEST_PYPI_USER }}
+          HATCH_INDEX_AUTH: ${{ secrets.TEST_PYPI_TOKEN }}
+        run: hatch publish --repo test
