@@ -23,7 +23,7 @@ project = pkg_meta["name"]
 copyright = "2025, Sunil Ghimire"
 author = pkg_meta["authors"][0]["name"]
 
-version = pkg_meta["version"]
+version = "v0.1.2"
 release = version
 
 
