@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 exclude = ["/.github", "/docs", "/tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src", "configs"]
 
 [tool.hatch.version]
 path = "src/__init__.py"
@@ -21,7 +21,7 @@ dynamic = ["version"]
 authors = [{ name = "Sunil Ghimire", email = "sunil.ghimire@fusemachines.com" }]
 readme = "README.rst"
 requires-python = ">=3.12"
-dependencies = ["dynaconf>=3.2.11", "fire>=0.7.0"]
+dependencies = ["cookiecutter>=2.6.0", "dynaconf>=3.2.11", "fire>=0.7.0"]
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Developers",
@@ -51,7 +51,7 @@ dev = [
 ]
 
 [project.scripts]
-temp-convert = "src.temperature._cli:main"
+temp-convert = "src.cookiecutter.packaging:main"
 
 [project.urls]
 Homepage = "https://sunil-fm.github.io/FusePyStarter/"
