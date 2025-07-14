@@ -5,6 +5,8 @@ import sys
 
 import toml
 
+from src import __version__
+
 sys.path.insert(0, os.path.abspath("../"))
 
 
@@ -23,7 +25,7 @@ project = pkg_meta["name"]
 copyright = "2025, Sunil Ghimire"
 author = pkg_meta["authors"][0]["name"]
 
-version = "v0.1.3"
+version = __version__
 release = version
 
 

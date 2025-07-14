@@ -9,6 +9,7 @@ from distutils import spawn
 
 from cookiecutter import exceptions
 from cookiecutter.main import cookiecutter
+from src import __version__
 from src.decorators import logger
 
 
@@ -18,7 +19,7 @@ class Main:
         try:
             return self._version
         except AttributeError:
-            self._version = self._get_project_meta()["version"]
+            self._version = __version__
             return self._version
 
     @staticmethod
