@@ -189,7 +189,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/6b/b6/82c7e601d6d3c3278
 
 [[package]]
 name = "fusepystarter"
-version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "dynaconf" },

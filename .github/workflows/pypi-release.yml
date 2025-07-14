@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish_release:
+    name: 📤 Publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🥚 Install Hatch
+        uses: pypa/hatch@install
+
+      - name: 📦 Build FusePyStarter
+        run: hatch build --clean
+
+      - name: 📤 Upload to PyPI
+        env:
+          HATCH_INDEX_USER: ${{ secrets.PYPI_USER }}
+          HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
+        run: hatch publish
+
+      - name: 📤 Upload to TestPyPI
+        env:
+          HATCH_INDEX_USER: ${{ secrets.TEST_PYPI_USER }}
+          HATCH_INDEX_AUTH: ${{ secrets.TEST_PYPI_TOKEN }}
+        run: hatch publish --repo test
