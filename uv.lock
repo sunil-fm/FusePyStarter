@@ -251,6 +251,7 @@ dependencies = [
     { name = "dynaconf" },
     { name = "fire" },
     { name = "setuptools" },
+    { name = "toml" },
 ]
 
 [package.dev-dependencies]
@@ -262,7 +263,6 @@ dev = [
     { name = "pytest-cov" },
     { name = "ruff" },
     { name = "sphinx-rtd-theme" },
-    { name = "toml" },
     { name = "tox" },
 ]
 
@@ -272,6 +272,7 @@ requires-dist = [
     { name = "dynaconf", specifier = ">=3.2.11" },
     { name = "fire", specifier = ">=0.7.0" },
     { name = "setuptools", specifier = ">=80.9.0" },
+    { name = "toml", specifier = ">=0.10.2" },
 ]
 
 [package.metadata.requires-dev]
@@ -283,7 +284,6 @@ dev = [
     { name = "pytest-cov", specifier = ">=6.2.1" },
     { name = "ruff", specifier = ">=0.11.13" },
     { name = "sphinx-rtd-theme", specifier = ">=3.0.2" },
-    { name = "toml", specifier = ">=0.10.2" },
     { name = "tox", specifier = ">=4.27.0" },
 ]
 
