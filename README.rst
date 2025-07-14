@@ -54,6 +54,7 @@ Build docs with Sphinx, automate with GitHub Actions, and publish on GitHub Page
 - `sphinx`_ — For generating structured project documentation.
 - `gh-actions`_ — To automate documentation builds and deployment on every push or pull request, using a CI/CD pipeline.
 - `gh-pages`_ — Deploy documentation or project pages directly from the main branch using Sphinx.
+- `pypi-release`_ — Prepare to publish the package to PyPI.
 
 Getting Started with uv
 ----------------------------
@@ -128,7 +129,7 @@ Coming Soon
 
 Planned future integrations:
 
-- **PyPI Release** — Prepare to publish the package to PyPI.
+- **Github Issue Template** — Report issue and suggestion template.
 
 Contribute or Follow Along
 -----------------------------
@@ -149,3 +150,4 @@ FusePyStarter is evolving. Star the repository, follow development, or contribut
 .. _sphinx: https://sunil-fm.github.io/FusePyStarter/deployment/sphinx.html
 .. _gh-actions: https://sunil-fm.github.io/FusePyStarter/deployment/gh-actions.html
 .. _gh-pages: https://sunil-fm.github.io/FusePyStarter/deployment/gh-pages.html
+.. _pypi-release: https://sunil-fm.github.io/FusePyStarter/deployment/pypi-release.html
