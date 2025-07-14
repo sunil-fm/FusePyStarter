@@ -12,3 +12,7 @@ htmlcov
 .tox
 docs/_build/
 doc/_build/
+# Cookiecutter
+output/
+python-boilerplate/
+cookiecutter-pypackage-env/

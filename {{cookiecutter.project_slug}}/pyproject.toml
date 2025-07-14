@@ -24,7 +24,7 @@ dev = [
 ]
 
 [project.scripts]
-fusepyfoundry = "src.temperature._cli:main"
+temp-convert = "src.temperature._cli:main"
 
 [project.urls]
 Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug | replace('_', '-') }}"

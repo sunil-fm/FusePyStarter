@@ -92,14 +92,14 @@ repos:
     hooks:
       - id: ruff
         name: Ruff Linter
-        exclude: ^(tests|src/cookiecutter)/
+        exclude: ^(tests|src/cookiecutter|{{cookiecutter.project_slug}})/
         types_or: [python, pyi]
         args:
           - --fix
           - --exit-non-zero-on-fix
       - id: ruff-format
         name: Ruff Formatter
-        exclude: ^(tests|src/cookiecutter)/
+        exclude: ^(tests|src/cookiecutter|{{cookiecutter.project_slug}})/
         types_or: [python, pyi]
         args: []
 
@@ -112,7 +112,7 @@ repos:
         args:
           - --disallow-untyped-defs
           - --ignore-missing-imports
-        exclude: ^(docs|tests|src/cookiecutter)/
+        exclude: ^(docs|tests|src/cookiecutter|{{cookiecutter.project_slug}})/
 
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.2.0
@@ -158,7 +158,7 @@ repos:
           - --should-document-private-class-attributes=True
           - --should-document-star-arguments=True
           - --check-style-mismatch=True
-          - --exclude='\.git|\.tox|tests|data|docs|src/cookiecutter'
+          - --exclude='\.git|\.tox|tests|data|docs|src/cookiecutter|{{cookiecutter.project_slug}}'
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.3.0
@@ -168,7 +168,7 @@ repos:
         additional_dependencies: [flake8-docstrings]
         args: [--docstring-convention=google, --max-line-length=100]
         files: ^src/
-        exclude: ^src/cookiecutter
+        exclude: ^src/cookiecutter|^{{cookiecutter.project_slug}}/
 
   - repo: local
     hooks:
