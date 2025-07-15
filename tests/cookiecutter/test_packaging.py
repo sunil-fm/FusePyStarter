@@ -3,7 +3,7 @@ import types
 from unittest import mock
 
 from fusepystarter import __version__
-from fusepystarter.cookiecutter.packaging import Main
+from fusepystarter.cookiecutter import cookiecutter_template
 
 # ----------------------------
 # Version & Metadata Tests
@@ -12,7 +12,7 @@ from fusepystarter.cookiecutter.packaging import Main
 
 def test_version_property():
     """Test that version property returns the correct package version."""
-    main = Main()
+    main = cookiecutter_template()
     assert main.version == __version__
 
 
@@ -26,7 +26,7 @@ def test_get_project_meta(mock_toml_load):
             "description": "A test project",
         }
     }
-    result = Main._get_project_meta()
+    result = cookiecutter_template._get_project_meta()
     assert result == {
         "name": "Test Project",
         "version": "1.0.0",
@@ -44,7 +44,7 @@ name = "fusepystarter"
 version = "0.1.0"
     """)
     monkeypatch.chdir(tmp_path)
-    meta = Main._get_project_meta()
+    meta = cookiecutter_template._get_project_meta()
     assert isinstance(meta, dict)
     assert meta["name"] == "fusepystarter"
     assert meta["version"] == "0.1.0"
@@ -57,8 +57,10 @@ version = "0.1.0"
 
 def test_main_has_init_and_version():
     """Ensure Main class has expected methods and attributes."""
-    assert hasattr(Main, "init") and isinstance(Main.init, types.FunctionType)
-    assert hasattr(Main, "version")  # property
+    assert hasattr(cookiecutter_template, "init") and isinstance(
+        cookiecutter_template.init, types.FunctionType
+    )
+    assert hasattr(cookiecutter_template, "version")  # property
 
 
 # ----------------------------
@@ -95,10 +97,10 @@ def test_tox_ini_exists():
     side_effect=["/usr/bin/git", "/usr/bin/python3", "/usr/local/bin/uv"],
 )
 def test_init_success(mock_spawn, mock_run, mock_chdir, mock_cookiecutter):
-    """Test Main.init runs successfully and performs expected calls."""
+    """Test cookiecutter_template.init runs successfully and performs expected calls."""
     mock_cookiecutter.return_value = "/tmp/test-project"
 
-    Main.init()
+    cookiecutter_template.init()
 
     mock_cookiecutter.assert_called_once_with("gh:sunil-fm/FusePyStarter")
     mock_chdir.assert_called_once_with("/tmp/test-project")
