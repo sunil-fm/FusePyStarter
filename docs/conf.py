@@ -5,8 +5,6 @@ import sys
 
 import toml
 
-from fusepystarter import __version__
-
 sys.path.insert(0, os.path.abspath("../"))
 
 
@@ -25,7 +23,15 @@ project = pkg_meta["name"]
 copyright = "2025, Sunil Ghimire"
 author = pkg_meta["authors"][0]["name"]
 
-version = __version__
+pkg_meta_dynamic = pkg_meta.get("dynamic")
+
+if isinstance(pkg_meta_dynamic, list):
+    from fusepystarter import __version__
+
+    version = __version__
+else:
+    version = pkg_meta_dynamic
+
 release = version
 
 
