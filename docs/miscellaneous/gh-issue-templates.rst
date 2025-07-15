@@ -178,6 +178,5 @@ Template Examples
 Additional Resources
 ====================
 
-- `GitHub Docs: Configuring issue templates <https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-issue-templates-for-your-repository>`_
-- `GitHub Docs: Using pull request templates <https://docs.github.com/en/pull-requests/using-templates-to-encourage-useful-issues-and-pull-requests>`_
+- `GitHub Docs: Configuring issue templates <https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository>`_
 - `YAML syntax guide <https://yaml.org/spec/>`_
