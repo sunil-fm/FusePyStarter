@@ -1,9 +1,9 @@
-"{{ cookiecutter.project_slug }}"
-=================================
+FusePyStarter
+=============
 
-{{ cookiecutter.project_slug }} is a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
+**FusePyStarter** is a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
 
-Why {{ cookiecutter.project_slug }}?
+Why FusePyStarter?
 ------------------
 
 - **Consistency:** Includes EditorConfig and Ruff to maintain uniform code style and linting across your team.
@@ -12,72 +12,56 @@ Why {{ cookiecutter.project_slug }}?
 - **Productivity:** Environment management and logging setup included for scalable projects.
 - **Quality:** Built-in testing and code coverage ensure reliability and maintainability.
 
-With {{ cookiecutter.project_slug }}, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
+With FusePyStarter, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
 
 Repository Links
--------------------
+----------------
 
 - **Source Code**: https://github.com/sunil-fm/FusePyStarter.git
 - **Issue Tracker**: https://github.com/sunil-fm/FusePyStarter/issues
 
-Contents
+Features
+--------
+
+FusePyStarter is equipped with powerful tools and integrations that promote consistency, automation, and maintainability right from the start. These features are grouped into two key areas: **code quality & consistency** and **project automation & scalability**.
+
+**Code Quality & Consistency**
+
+- `EditorConfig <https://sunil-fm.github.io/FusePyStarter/initialization/editorconfig.html>`_ — Ensures consistent indentation, line endings, and formatting across editors and IDEs.
+- `Ruff <https://sunil-fm.github.io/FusePyStarter/initialization/ruff.html>`_ — A lightning-fast Python linter and formatter.
+- `MyPy <https://sunil-fm.github.io/FusePyStarter/initialization/mypy.html>`_ — Performs static type checking to catch type-related bugs early.
+- `pre-commit <https://sunil-fm.github.io/FusePyStarter/initialization/pre-commit.html>`_ — Automates code quality checks via Git hooks.
+
+**Project Automation & Scalability**
+
+- `Dynaconf <https://sunil-fm.github.io/FusePyStarter/setup/dynaconf.html>`_ — Flexible and layered configuration management system.
+- `Fire <https://sunil-fm.github.io/FusePyStarter/setup/fire.html>`_ — Instantly generates CLI interfaces from your Python code.
+- `Logging <https://sunil-fm.github.io/FusePyStarter/setup/logging.html>`_ — Built-in, configurable logging setup for debugging and observability.
+- `Pytest <https://sunil-fm.github.io/FusePyStarter/setup/pytest.html>`_ — A mature and powerful testing framework.
+- `Coverage <https://ghimiresunil.github.io/PyFoundry/setup/coverage.html>`_ — Tracks code coverage during test runs.
+- `pytest-cov <https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html>`_ — Integrates `coverage` directly with `pytest`.
+- `Tox <https://sunil-fm.github.io/FusePyStarter/setup/tox.html>`_ — Automates testing across different Python environments and dependency sets.
+
+These tools work together to provide a seamless development experience — whether you're building a quick prototype or a production-grade system.
+
+Quick Start
 -----------
 
-Project Initialization
-~~~~~~~~~~~~~~~~~~~~~~
+1. Install the latest framework for Python if you haven't already:
 
-The project is configured with tools that promote consistency and maintainability from the beginning:
+   .. code-block:: console
 
-- `editorconfig`_ — Ensures consistent indentation, line endings, and formatting across different editors.
-- `ruff`_ — Ultra-fast linter and formatter for Python.
-- `mypy`_ — Static type checker for Python.
-- `pre-commit`_ — Framework for managing and maintaining multi-language pre-commit hooks.
+      $ pip install -U fusepystarter
+      # or, using uv
+      $ uv add fusepystarter
 
-Project Setup
-~~~~~~~~~~~~~
+2. Initialize your project:
 
-The core project setup integrates tools for configuration, CLI handling, testing, and automation:
+   .. code-block:: console
 
-- `dynaconf`_ — Flexible configuration management.
-- `fire`_ — CLI generation from Python code.
-- `logging`_ — Built-in logging configuration for visibility and debugging.
-- `pytest`_ — Simple yet powerful test framework.
-- `coverage`_ — Monitors code coverage during test execution.
-- `pytest-cov`_ — Plugin for integrating coverage with pytest.
-- `tox`_ — Automates testing across multiple Python environments.
+      $ fusepystarter init
 
-Project deployment
-~~~~~~~~~~~~~~~~~~
-
-Build docs with Sphinx, automate with GitHub Actions, and publish on GitHub Pages.
-
-- `sphinx`_ — For generating structured project documentation.
-- `gh-actions`_ — To automate documentation builds and deployment on every push or pull request, using a CI/CD pipeline.
-- `gh-pages`_ — Deploy documentation or project pages directly from the main branch using Sphinx.
-- `pypi-release`_ — Prepare to publish the package to PyPI.
-
-Getting Started with uv
-----------------------------
-
-1. **Clone the repository**
-
-   .. code-block:: bash
-
-      git clone https://github.com/sunil-fm/FusePyStarter.git
-      cd FusePyStarter
-
-2. **Create a virtual environment**
-
-   .. code-block:: bash
-
-      uv venv .venv
-      source .venv/bin/activate
-
-3. **Install project dependencies**
-
-   .. code-block:: bash
-
-      uv sync
+3. Create a repository and push your project.
 
 Environment Examples
 --------------------
@@ -119,35 +103,17 @@ Sample `.secrets.example` file:
 
 .. note::
 
-   Replace ``.env.examples`` with ``.env`` to configure your working environment, and replace
-   ``.secrets.examples.toml`` with ``.secrets.toml`` to store your actual secret values.
+   Replace ``.env.example`` with ``.env`` to configure your working environment, and replace
+   ``.secrets.example`` with ``.secrets.toml`` to store your actual secret values.
 
    Make sure to exclude ``.secrets.toml`` from version control to keep your secrets secure.
 
-Coming Soon
---------------
+Learn More
+----------
 
-Planned future integrations:
-
-- **Github Issue Template** — Report issue and suggestion template.
+For more detailed tutorials and documentation, visit the official `FusePyStarter Tutorial <https://sunil-fm.github.io/FusePyStarter/tutorial.html>`_.
 
 Contribute or Follow Along
------------------------------
+--------------------------
 
 FusePyStarter is evolving. Star the repository, follow development, or contribute by submitting issues and pull requests!
-
-.. _editorconfig: https://sunil-fm.github.io/FusePyStarter/initialization/editorconfig.html
-.. _ruff: https://sunil-fm.github.io/FusePyStarter/initialization/ruff.html
-.. _mypy: https://sunil-fm.github.io/FusePyStarter/initialization/mypy.html
-.. _pre-commit: https://sunil-fm.github.io/FusePyStarter/initialization/pre-commit.html
-.. _dynaconf: https://sunil-fm.github.io/FusePyStarter/setup/dynaconf.html
-.. _fire: https://sunil-fm.github.io/FusePyStarter/setup/fire.html
-.. _logging: https://sunil-fm.github.io/FusePyStarter/setup/logging.html
-.. _pytest: https://sunil-fm.github.io/FusePyStarter/setup/pytest.html
-.. _coverage: https://ghimiresunil.github.io/PyFoundry/setup/coverage.html
-.. _pytest-cov: https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html
-.. _tox: https://sunil-fm.github.io/FusePyStarter/setup/tox.html
-.. _sphinx: https://sunil-fm.github.io/FusePyStarter/deployment/sphinx.html
-.. _gh-actions: https://sunil-fm.github.io/FusePyStarter/deployment/gh-actions.html
-.. _gh-pages: https://sunil-fm.github.io/FusePyStarter/deployment/gh-pages.html
-.. _pypi-release: https://sunil-fm.github.io/FusePyStarter/deployment/pypi-release.html
