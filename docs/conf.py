@@ -5,7 +5,7 @@ import sys
 
 import toml
 
-from src import __version__
+from fusepystarter import __version__
 
 sys.path.insert(0, os.path.abspath("../"))
 
