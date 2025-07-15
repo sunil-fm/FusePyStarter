@@ -122,22 +122,23 @@ repos:
         name: Git Conventional Commit Message
         stages: [commit-msg]
         args:
-          [
-            --strict,
-            --force-scope,
-            --verbose,
-            feat,
-            fix,
-            chore,
-            refactor,
-            docs,
-            style,
-            test,
-            perf,
-            ci,
-            build,
-            revert,
-          ]
+          - --strict # Strict mode - fail on any violations
+          - --force-scope # Require scope in commit messages
+          - --verbose # Verbose output
+          # Allowed commit types with descriptions:
+          - feat # New features
+          - fix # Bug fixes
+          - chore # Maintenance tasks
+          - refactor # Code refactoring
+          - docs # Documentation changes
+          - style # Code style changes
+          - test # Test additions/modifications
+          - perf # Performance improvements
+          - ci # CI/CD changes
+          - build # Build system changes
+          - revert # Revert previous commits
+          - security # Security fixes
+          - deps # Dependency updates
 
   - repo: https://github.com/jsh9/pydoclint
     rev: 0.6.7
