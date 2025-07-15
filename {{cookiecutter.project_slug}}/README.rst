@@ -1,9 +1,9 @@
-FusePyStarter
-=============
+"{{ cookiecutter.project_slug }}"
+=================================
 
-FusePyStarteris a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
+{{ cookiecutter.project_slug }} is a modern project template designed to simplify the initial setup of Python projects by providing a solid foundation with best practices built in from day one. It helps you avoid common setup pitfalls and enforces consistency so you can focus on what matters: writing great code.
 
-Why FusePyStarter?
+Why {{ cookiecutter.project_slug }}?
 ------------------
 
 - **Consistency:** Includes EditorConfig and Ruff to maintain uniform code style and linting across your team.
@@ -12,7 +12,7 @@ Why FusePyStarter?
 - **Productivity:** Environment management and logging setup included for scalable projects.
 - **Quality:** Built-in testing and code coverage ensure reliability and maintainability.
 
-With PyFoundry, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
+With {{ cookiecutter.project_slug }}, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
 
 Repository Links
 -------------------
