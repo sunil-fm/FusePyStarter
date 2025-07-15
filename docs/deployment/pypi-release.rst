@@ -51,7 +51,7 @@ Configure your package in ``pyproject.toml``:
     dependencies = ["dynaconf>=3.2.11", "fire>=0.7.0"]
 
 Build Configuration
-------------------
+-------------------
 .. code-block:: cfg
 
     [tool.hatch.build.targets.sdist]
@@ -108,7 +108,7 @@ Publishing Workflow
               HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
 
 Tagging Releases
----------------
+----------------
 Create versioned releases with Git tags:
 
 .. code-block:: console
@@ -117,7 +117,7 @@ Create versioned releases with Git tags:
     git push origin v1.0.0
 
 Manual Publishing
-----------------
+-----------------
 For manual publishing:
 
 .. code-block:: console

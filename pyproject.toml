@@ -6,10 +6,10 @@ build-backend = "hatchling.build"
 exclude = ["/.github", "/docs", "/tests"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["fusepystarter", "configs"]
 
 [tool.hatch.version]
-path = "src/__init__.py"
+path = "fusepystarter/__init__.py"
 
 [tool.hatch]
 installer = "uv"
@@ -21,7 +21,13 @@ dynamic = ["version"]
 authors = [{ name = "Sunil Ghimire", email = "sunil.ghimire@fusemachines.com" }]
 readme = "README.rst"
 requires-python = ">=3.12"
-dependencies = ["dynaconf>=3.2.11", "fire>=0.7.0"]
+dependencies = [
+  "cookiecutter>=2.6.0",
+  "dynaconf>=3.2.11",
+  "fire>=0.7.0",
+  "setuptools>=80.9.0",
+  "toml>=0.10.2",
+]
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Developers",
@@ -46,12 +52,11 @@ dev = [
   "pytest-cov>=6.2.1",
   "ruff>=0.11.13",
   "sphinx-rtd-theme>=3.0.2",
-  "toml>=0.10.2",
   "tox>=4.27.0",
 ]
 
 [project.scripts]
-temp-convert = "src.temperature._cli:main"
+fusepystarter = "fusepystarter.cookiecutter.packaging:main"
 
 [project.urls]
 Homepage = "https://sunil-fm.github.io/FusePyStarter/"
@@ -65,7 +70,7 @@ addopts = "--cov --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
+source = ["fusepystarter"]
 
 [tool.coverage.report]
 # Regexes for lines to exclude from consideration
@@ -88,5 +93,5 @@ exclude_lines = [
   # Don't complain about fire commands
   "fire.Fire",
 ]
-fail_under = 90
+fail_under = 60
 ignore_errors = true

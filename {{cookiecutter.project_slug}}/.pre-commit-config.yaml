@@ -66,7 +66,6 @@ repos:
         description: Validate YAML syntax
         entry: check-yaml
         args: [--unsafe]
-        exclude: ^{{cookiecutter.project_slug}}/\.github/workflows/
 
       - id: check-json
         name: Check JSON files
@@ -93,14 +92,14 @@ repos:
     hooks:
       - id: ruff
         name: Ruff Linter
-        exclude: ^({{cookiecutter.project_slug}}/tests|tests)/
+        exclude: ^(tests|src/cookiecutter)/
         types_or: [python, pyi]
         args:
           - --fix
           - --exit-non-zero-on-fix
       - id: ruff-format
-        exclude: ^({{cookiecutter.project_slug}}/tests|tests)/
         name: Ruff Formatter
+        exclude: ^(tests|src/cookiecutter)/
         types_or: [python, pyi]
         args: []
 
@@ -111,9 +110,9 @@ repos:
         name: Mypy Type Checker
         entry: mypy
         args:
-          - --disallow-untyped-defs # disallow functions without type annotations
+          - --disallow-untyped-defs
           - --ignore-missing-imports
-        exclude: ^({{cookiecutter.project_slug}}/(tests|configs)|docs|tests)/
+        exclude: ^(docs|tests|src/cookiecutter)/
 
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.2.0
@@ -160,7 +159,7 @@ repos:
           - --should-document-private-class-attributes=True
           - --should-document-star-arguments=True
           - --check-style-mismatch=True
-          - --exclude='\.git|\.tox|tests|data|docs'
+          - --exclude='\.git|\.tox|tests|data|docs|src/cookiecutter'
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.3.0
@@ -169,7 +168,8 @@ repos:
         name: Check short description of Docstring
         additional_dependencies: [flake8-docstrings]
         args: [--docstring-convention=google, --max-line-length=100]
-        files: ^fusepystarter/
+        files: ^src/
+        exclude: ^src/cookiecutter
 
   - repo: local
     hooks:
