@@ -24,10 +24,10 @@ jobs:
         with:
           version: "0.7.9"
 
-      - name: Set up Python ${{matrix.python-version}}
+      - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{matrix.python-version}}
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 
       - name: Install Dependencies
         run: uv sync
