@@ -49,15 +49,13 @@ class Main:
 
         while True:
             try:
-                path = cookiecutter(
-                    "gh:sunil-fm/FusePyStarter", checkout="cookiecutter"
-                )
+                path = cookiecutter("gh:sunil-fm/FusePyStarter")
                 os.chdir(path)
 
                 subprocess.run(["git", "init"])
 
                 logger.info("Creating virtual environment with uv...")
-                subprocess.run(["uv", "venv", ".venv_test"])
+                subprocess.run(["uv", "venv", ".venv"])
 
                 logger.info("Installing dependencies...")
                 subprocess.run(["uv", "sync"])
