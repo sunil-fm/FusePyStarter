@@ -49,21 +49,24 @@ class Main:
 
         while True:
             try:
-                path = cookiecutter("gh:sunil-fm/FusePyStarter")
+                path = cookiecutter(
+                    "gh:sunil-fm/FusePyStarter", checkout="cookiecutter"
+                )
                 os.chdir(path)
 
                 subprocess.run(["git", "init"])
 
                 logger.info("Creating virtual environment with uv...")
-                subprocess.run(["uv", "venv", ".venv"], check=True)
+                subprocess.run(["uv", "venv", ".venv_test"])
 
                 logger.info("Installing dependencies...")
-                subprocess.run(["uv", "sync"], check=True)
+                subprocess.run(["uv", "sync"])
+
+                logger.info("Installing dev dependencies...")
+                subprocess.run(["uv", "sync", "--dev"])
 
                 logger.info("Installing pre-commit hooks...")
-                subprocess.run(
-                    [".venv/bin/python", "-m", "pre_commit", "install"], check=True
-                )
+                subprocess.run([".venv/bin/python", "-m", "pre_commit", "install"])
                 break
 
             except exceptions.RepositoryNotFound:
