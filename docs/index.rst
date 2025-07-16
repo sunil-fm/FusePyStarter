@@ -13,6 +13,13 @@ FusePyStarter documentation
    readme
    tutorial
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Miscellaneous
+
+   miscellaneous
+
+
 .. .. toctree::
 ..    :maxdepth: 2
 ..    :caption: Modules
