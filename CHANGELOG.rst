@@ -2,7 +2,19 @@
 CHANGELOG
 =========
 
-0.1.6 (2025-07-15)
+
+v0.1.7 (2025-07-17)
+------------------
+
+Changes
+~~~~~~~
+
+* Add Issue template for feature, bug and PR
+* Add documentation for Contributing, Authors, troubleshooting
+* Update README.rst to include "Who should use", "When to use", and "When not to use" sections
+
+
+v0.1.6 (2025-07-15)
 ------------------
 
 Changes
@@ -11,7 +23,7 @@ Changes
 * Integrate Cookiecutter support for customizable project scaffolding
 * Merge pull request #9 from sunil-fm/cookiecutter
 
-0.1.5 (2025-07-15)
+v0.1.5 (2025-07-15)
 ------------------
 
 Changes
@@ -19,7 +31,7 @@ Changes
 
 * Configure Dynaconf to load `settings.toml` and `.secrets.toml` from the `configs` directory
 
-0.1.4 (2025-07-14)
+v0.1.4 (2025-07-14)
 ------------------
 
 Changes
@@ -27,7 +39,7 @@ Changes
 
 * Add `__init__.py` version metadata to centralize version management
 
-0.1.3 (2025-07-14)
+v0.1.3 (2025-07-14)
 ------------------
 
 Changes
@@ -35,7 +47,7 @@ Changes
 
 * Fix `pyproject.toml` dependency group configuration
 
-0.1.2 (2025-07-10)
+v0.1.2 (2025-07-10)
 ------------------
 
 Changes
@@ -45,7 +57,7 @@ Changes
 * GitHub Issue Template Instructions
 * Cookiecutter Instructions
 
-0.1.1 (2025-07-10)
+v0.1.1 (2025-07-10)
 ------------------
 
 Changes
@@ -53,7 +65,7 @@ Changes
 
 * Update Project Description
 
-0.1.0 (2025-07-10)
+v0.1.0 (2025-07-10)
 ------------------
 
 Code Quality & Consistency
