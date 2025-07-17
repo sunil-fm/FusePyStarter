@@ -62,6 +62,8 @@ fusepystarter = "fusepystarter.cookiecutter.packaging:main"
 Homepage = "https://sunil-fm.github.io/FusePyStarter/"
 Repository = "https://github.com/sunil-fm/FusePyStarter"
 Documentation = "https://sunil-fm.github.io/FusePyStarter/"
+Changelog = "https://github.com/sunil-fm/FusePyStarter/CHANGELOG.rst"
+Releases = "https://github.com/sunil-fm/FusePyStarter/releases"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
