@@ -5,4 +5,5 @@
    miscellaneous/gh-issue-templates
    authors
    troubleshooting
+   changelog
    contributing
