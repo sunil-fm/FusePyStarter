@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHANGELOG &mdash; fusepystarter v0.1.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=31ce3dc5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            fusepystarter
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">FusePyStarter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#who-should-use-fusepystarter">Who Should Use FusePyStarter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#when-should-you-use-fusepystarter">When Should You Use FusePyStarter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#when-not-to-use-fusepystarter">When <em>Not</em> to Use FusePyStarter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#quick-start">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#contribute-or-follow-along">Contribute or Follow Along</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous/gh-issue-templates.html">GitHub Issue Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CHANGELOG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-7-2025-07-17">v0.1.7 (2025-07-17)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changes">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-6-2025-07-15">v0.1.6 (2025-07-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-5-2025-07-15">v0.1.5 (2025-07-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-4-2025-07-14">v0.1.4 (2025-07-14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-3-2025-07-14">v0.1.3 (2025-07-14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-2-2025-07-10">v0.1.2 (2025-07-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-1-2025-07-10">v0.1.1 (2025-07-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-1-0-2025-07-10">v0.1.0 (2025-07-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-quality-consistency">Code Quality &amp; Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-automation-scalability">Project Automation &amp; Scalability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">fusepystarter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="miscellaneous.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active">CHANGELOG</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog">
+<h1>CHANGELOG<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<section id="v0-1-7-2025-07-17">
+<h2>v0.1.7 (2025-07-17)<a class="headerlink" href="#v0-1-7-2025-07-17" title="Link to this heading"></a></h2>
+<section id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add Issue template for feature, bug and PR</p></li>
+<li><p>Add documentation for Contributing, Authors, troubleshooting</p></li>
+<li><p>Update README.rst to include “Who should use”, “When to use”, and “When not to use” sections</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-6-2025-07-15">
+<h2>v0.1.6 (2025-07-15)<a class="headerlink" href="#v0-1-6-2025-07-15" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Changes<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Integrate Cookiecutter support for customizable project scaffolding</p></li>
+<li><p>Merge pull request #9 from sunil-fm/cookiecutter</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-5-2025-07-15">
+<h2>v0.1.5 (2025-07-15)<a class="headerlink" href="#v0-1-5-2025-07-15" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>Changes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Configure Dynaconf to load <cite>settings.toml</cite> and <cite>.secrets.toml</cite> from the <cite>configs</cite> directory</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-4-2025-07-14">
+<h2>v0.1.4 (2025-07-14)<a class="headerlink" href="#v0-1-4-2025-07-14" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>Changes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add <cite>__init__.py</cite> version metadata to centralize version management</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-3-2025-07-14">
+<h2>v0.1.3 (2025-07-14)<a class="headerlink" href="#v0-1-3-2025-07-14" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>Changes<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix <cite>pyproject.toml</cite> dependency group configuration</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-2-2025-07-10">
+<h2>v0.1.2 (2025-07-10)<a class="headerlink" href="#v0-1-2-2025-07-10" title="Link to this heading"></a></h2>
+<section id="id5">
+<h3>Changes<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Group docs</p></li>
+<li><p>GitHub Issue Template Instructions</p></li>
+<li><p>Cookiecutter Instructions</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-1-2025-07-10">
+<h2>v0.1.1 (2025-07-10)<a class="headerlink" href="#v0-1-1-2025-07-10" title="Link to this heading"></a></h2>
+<section id="id6">
+<h3>Changes<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Update Project Description</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-1-0-2025-07-10">
+<h2>v0.1.0 (2025-07-10)<a class="headerlink" href="#v0-1-0-2025-07-10" title="Link to this heading"></a></h2>
+<section id="code-quality-consistency">
+<h3>Code Quality &amp; Consistency<a class="headerlink" href="#code-quality-consistency" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/initialization/editorconfig.html">EditorConfig</a> - Ensures consistent indentation, line endings, and formatting across editors and IDEs.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/initialization/ruff.html">Ruff</a> - A lightning-fast Python linter and formatter.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/initialization/mypy.html">MyPy</a> - Performs static type checking to catch type-related bugs early.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/initialization/pre-commit.html">pre-commit</a> - Automates code quality checks via Git hooks.</p></li>
+</ul>
+</section>
+<section id="project-automation-scalability">
+<h3>Project Automation &amp; Scalability<a class="headerlink" href="#project-automation-scalability" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/dynaconf.html">Dynaconf</a> - Flexible and layered configuration management system.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/fire.html">Fire</a> - Instantly generates CLI interfaces from your Python code.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/logging.html">Logging</a> - Built-in, configurable logging setup for debugging and observability.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/pytest.html">Pytest</a> - A mature and powerful testing framework.</p></li>
+<li><p><a class="reference external" href="https://ghimiresunil.github.io/PyFoundry/setup/coverage.html">Coverage</a> - Tracks code coverage during test runs.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html">pytest-cov</a> - Integrates coverage directly with pytest.</p></li>
+<li><p><a class="reference external" href="https://sunil-fm.github.io/FusePyStarter/setup/tox.html">Tox</a> - Automates testing across different Python environments and dependency sets.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sunil Ghimire.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

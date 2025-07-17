@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sphinx Documentation &mdash; fusepystarter v0.1.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=31ce3dc5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Continuous Integration: GitHub Actions" href="gh-actions.html" />
+    <link rel="prev" title="Testing: tox" href="../setup/tox.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            fusepystarter
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">FusePyStarter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#who-should-use-fusepystarter">Who Should Use FusePyStarter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#when-should-you-use-fusepystarter">When Should You Use FusePyStarter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#when-not-to-use-fusepystarter">When <em>Not</em> to Use FusePyStarter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#quick-start">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#contribute-or-follow-along">Contribute or Follow Along</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../initialization/editorconfig.html">EditorConfig Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../initialization/mypy.html">Type Hinting: MyPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../initialization/ruff.html">Linter and Formatter: Ruff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../initialization/pre-commit.html">Pre-commit Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/dynaconf.html">Dynaconf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/fire.html">Command Line Interface: Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/logging.html">Python Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/pytest.html">Testing with pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/coverage.html">Testing: Coverage (CLI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/pytest-cov.html">Testing: pytest-cov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/tox.html">Testing: tox</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sphinx Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-resources">Additional Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-step">Next Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall">Uninstall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gh-actions.html">Continuous Integration: GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gh-pages.html">Document Hosting: GitHub Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pypi-release.html">Package Hosting: PyPI</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../miscellaneous/gh-issue-templates.html">GitHub Issue Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">CHANGELOG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fusepystarter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../tutorial.html">Tutorial</a></li>
+      <li class="breadcrumb-item active">Sphinx Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/deployment/sphinx.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinx-documentation">
+<h1>Sphinx Documentation<a class="headerlink" href="#sphinx-documentation" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p><strong>Sphinx</strong> is a powerful tool for generating intelligent and beautiful documentation.
+Originally developed for Python’s own documentation, Sphinx supports a variety of output formats and is highly extensible.</p>
+<p>It is especially well-suited for documenting software projects, including Python-based codebases.
+It uses reStructuredText for content markup and integrates tightly with tools like Pygments and Docutils.</p>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Multiple output formats</strong>: HTML, PDF (via LaTeX), ePub, Texinfo, man pages, plain text, and more.</p></li>
+<li><p><strong>Cross-referencing</strong>: Semantic links for functions, classes, glossary terms, citations, etc.</p></li>
+<li><p><strong>Hierarchical structure</strong>: Easy document tree definition with parent/child navigation.</p></li>
+<li><p><strong>Indexing</strong>: Automatic general and module-specific indices.</p></li>
+<li><p><strong>Syntax highlighting</strong>: Via the Pygments highlighter.</p></li>
+<li><p><strong>Autodoc support</strong>: Pulls docstrings from Python modules automatically.</p></li>
+<li><p><strong>Extensions</strong>: Built-in and third-party extensions, many available via PyPI.</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Install Sphinx as a development dependency using <cite>uv</cite>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>sphinx
+</pre></div>
+</div>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>Initialize a Sphinx project using:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sphinx-quickstart<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span>uv<span class="w"> </span>version<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span><span class="w"> </span>docs
+</pre></div>
+</div>
+<p>This will generate the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs
+├── _build/
+├── _static/
+├── _templates/
+├── conf.py
+├── index.rst
+├── make.bat
+└── Makefile
+</pre></div>
+</div>
+<p>Change the theme to <strong>Read the Docs</strong> for a better look:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>sphinx-rtd-theme
+<span class="gp">$ </span>uv<span class="w"> </span>remove<span class="w"> </span>--dev<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>Update <cite>conf.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+</pre></div>
+</div>
+<p>Rebuild the docs:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>-C<span class="w"> </span>docs<span class="w"> </span>clean
+<span class="gp">$ </span>make<span class="w"> </span>-C<span class="w"> </span>docs<span class="w"> </span>html
+<span class="gp">$ </span>brave-browser<span class="w"> </span>docs/_build/html/index.html
+</pre></div>
+</div>
+<p>Enable autodoc and dynamic metadata in <cite>conf.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">toml</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_project_meta</span><span class="p">():</span>
+    <span class="n">project_root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+    <span class="k">return</span> <span class="n">toml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">project_root</span> <span class="o">/</span> <span class="s2">&quot;pyproject.toml&quot;</span><span class="p">)[</span><span class="s2">&quot;project&quot;</span><span class="p">]</span>
+
+<span class="n">pkg_meta</span> <span class="o">=</span> <span class="n">_get_project_meta</span><span class="p">()</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">pkg_meta</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s2">&quot;2025, Sunil Ghimire&quot;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="n">pkg_meta</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">pkg_meta</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+<span class="n">release</span> <span class="o">=</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Enable extensions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.napoleon&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>Generate documentation from source files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sphinx-apidoc<span class="w"> </span>-o<span class="w"> </span>docs/<span class="w"> </span>src
+</pre></div>
+</div>
+<p>Add the generated modules to <cite>index.rst</cite>:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+   <span class="nc">:caption:</span> Contents:
+
+   modules
+</pre></div>
+</div>
+<p>Ignore generated <cite>.rst</cite> module files in Git:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ignore module docs</span>
+<span class="n">src</span><span class="o">*.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>Rebuild documentation:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>-C<span class="w"> </span>docs<span class="w"> </span>clean
+<span class="gp">$ </span>make<span class="w"> </span>-C<span class="w"> </span>docs<span class="w"> </span>html
+<span class="gp">$ </span>chromium<span class="w"> </span>docs/_build/html/index.html
+</pre></div>
+</div>
+<p>Test documentation build using <cite>tox</cite> by adding this to your <cite>tox.ini</cite>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[tox]</span>
+<span class="na">envlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">..., docs</span>
+
+<span class="k">[testenv:docs]</span>
+<span class="na">basepython</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">python</span>
+<span class="na">changedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">docs</span>
+<span class="na">deps</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">sphinx-rtd-theme</span>
+<span class="w">    </span><span class="na">toml</span>
+<span class="na">commands</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">sphinx-build -b html -d {envtmpdir}/doctrees . {envtmpdir}</span>
+</pre></div>
+</div>
+<p>Then run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tox
+</pre></div>
+</div>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading"></a></h2>
+<p>Useful extensions to consider:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.coverage&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.doctest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.githubpages&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.napoleon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.todo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.viewcode&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>To disable <cite>todo</cite> items from appearing in the output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">todo_include_todos</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Better syntax highlighting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pygments_style</span> <span class="o">=</span> <span class="s2">&quot;sphinx&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="next-step">
+<h2>Next Step<a class="headerlink" href="#next-step" title="Link to this heading"></a></h2>
+<p>Set up <strong>Continuous Integration</strong> with <strong>GitHub Actions</strong> to automatically test documentation builds.</p>
+</section>
+<section id="uninstall">
+<h2>Uninstall<a class="headerlink" href="#uninstall" title="Link to this heading"></a></h2>
+<p>Remove Sphinx-related packages:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>remove<span class="w"> </span>--dev<span class="w"> </span>sphinx-rtd-theme
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../setup/tox.html" class="btn btn-neutral float-left" title="Testing: tox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gh-actions.html" class="btn btn-neutral float-right" title="Continuous Integration: GitHub Actions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sunil Ghimire.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
