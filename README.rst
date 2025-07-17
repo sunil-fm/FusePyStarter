@@ -82,7 +82,7 @@ FusePyStarter is powerful-but not always the right fit. Skip it if:
    **FusePyStarter bridges the gap between research and production.**
 
 Quick Start
------------
+============
 
 1. Install the latest framework for Python if you haven't already:
 
@@ -146,11 +146,11 @@ Sample .secrets.example file:
    Make sure to exclude `.secrets.toml` from version control to keep your secrets secure.
 
 Learn More
-----------
+==========
 
 For more detailed tutorials and documentation, visit the official `FusePyStarter Tutorial <https://sunil-fm.github.io/FusePyStarter/tutorial.html>`_.
 
 Contribute or Follow Along
---------------------------
+==========================
 
 FusePyStarter is evolving. Star the repository, follow development, or contribute by submitting issues and pull requests!
