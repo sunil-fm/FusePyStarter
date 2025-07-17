@@ -12,7 +12,7 @@ Why FusePyStarter?
 - **Productivity:** Environment management and logging setup included for scalable projects.
 - **Quality:** Built-in testing and code coverage ensure reliability and maintainability.
 
-With FusePyStarter, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows.
+With FusePyStarter, starting your Python project is no longer a hurdle but a streamlined experience that scales from simple scripts to complex AI engineering workflows. For more help getting started, see the full `FusePyStarter Tutorial <https://sunil-fm.github.io/FusePyStarter/tutorial.html>`_.
 
 Repository Links
 ----------------
@@ -44,7 +44,6 @@ Project Automation & Scalability
 - `pytest-cov <https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html>`_ - Integrates coverage directly with pytest.
 - `Tox <https://sunil-fm.github.io/FusePyStarter/setup/tox.html>`_ - Automates testing across different Python environments and dependency sets.
 
-
 Who Should Use FusePyStarter?
 =============================
 
@@ -53,8 +52,8 @@ FusePyStarter is designed for developers and teams who care about clean code, sc
 1. **Individual Developers** - Whether you're just getting started or have years of experience, FusePyStarter saves you time and enforces best practices out of the box.
 2. **Engineering Teams** - Establish a unified development workflow across your organization with standardized tooling and automation.
 3. **AI/ML Engineers & Data Scientists** - Prototype in notebooks, then transition seamlessly into robust, maintainable pipelines using FusePyStarter.
-4. **DevOps & Automation Enthusiasts** - Pre-wired for CI-ready workflows with tools like Tox, pre-commit, and coverage reporting.
-5. **Open Source Maintainers** - Create high-quality packages with consistent linting, testing, and documentation defaults.
+4. **DevOps & Automation Enthusiasts** - Pre-wired for CI-ready workflows. If you encounter issues, refer to the `Troubleshooting Guide <https://sunil-fm.github.io/FusePyStarter/troubleshooting.html>`_.
+5. **Open Source Maintainers** - Create high-quality packages with consistent linting, testing, and documentation defaults. See `Authors <https://sunil-fm.github.io/FusePyStarter/authors.html>`_ for contributors.
 
 When Should You Use FusePyStarter?
 ==================================
@@ -71,7 +70,7 @@ Use FusePyStarter when you want your Python project to start strong, scale smoot
 When *Not* to Use FusePyStarter
 ===============================
 
-FusePyStarter is powerful-but not always the right fit. Skip it if:
+FusePyStarter is powerful—but not always the right fit. Skip it if:
 
 1. **You're Writing a One-Off Script** - For quick experiments or throwaway scripts, a full project scaffold may be overkill.
 2. **You’re Staying Inside Notebooks** - If your entire workflow lives in Colab or Jupyter, FusePyStarter adds unnecessary structure.
@@ -82,7 +81,7 @@ FusePyStarter is powerful-but not always the right fit. Skip it if:
    **FusePyStarter bridges the gap between research and production.**
 
 Quick Start
-============
+===========
 
 1. Install the latest framework for Python if you haven't already:
 
@@ -145,12 +144,8 @@ Sample .secrets.example file:
 
    Make sure to exclude `.secrets.toml` from version control to keep your secrets secure.
 
-Learn More
-==========
-
-For more detailed tutorials and documentation, visit the official `FusePyStarter Tutorial <https://sunil-fm.github.io/FusePyStarter/tutorial.html>`_.
-
 Contribute or Follow Along
 ==========================
 
-FusePyStarter is evolving. Star the repository, follow development, or contribute by submitting issues and pull requests!
+FusePyStarter is evolving (see the `Changelog <https://sunil-fm.github.io/FusePyStarter/changelog.html>`_ for details).
+Star the repository, follow development, or contribute by submitting issues and pull requests—see our `Contributing Guidelines <https://sunil-fm.github.io/FusePyStarter/contributing.html>`_.
