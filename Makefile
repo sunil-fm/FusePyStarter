@@ -28,7 +28,7 @@ help:  ## Show this help message
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 docs:  ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/src*.rst
+	rm -f docs/fusepystarter*.rst
 	sphinx-apidoc -o docs/ fusepystarter/
 	rm -f docs/fusepystarter.decorators.rst
 	rm -f docs/fusepystarter.cookiecutter.rst
