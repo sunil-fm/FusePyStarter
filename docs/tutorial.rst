@@ -37,12 +37,6 @@ top of the page at `GitHub Help`_.
    deployment/gh-pages
    deployment/pypi-release
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Miscellaneous
-
-   miscellaneous/gh-issue-templates
-
 .. _GitHub account: https://github.com/
 .. _PyPI: https://pypi.python.org/pypi
 .. _GitHub Help: https://help.github.com/

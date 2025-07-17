@@ -1,1 +1,8 @@
-.. include:: ../docs/miscellaneous/gh-issue-templates.rst
+.. toctree::
+   :maxdepth: 2
+   :caption: Miscellaneous
+
+   miscellaneous/gh-issue-templates
+   authors
+   troubleshooting
+   contributing
