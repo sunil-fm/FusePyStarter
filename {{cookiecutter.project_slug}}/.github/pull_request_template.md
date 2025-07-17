@@ -1,40 +1,28 @@
----
-name: Pull Request
-about: Submit a pull request to propose code changes
-title: "[PR] "
-labels: ""
-assignees: { { cookiecutter.github_username } }
----
+# Pull Request
 
-**What does this PR do?**
+## Summary
 
-<!-- A concise description of what this pull request does -->
+<!-- Provide a brief description of the changes made in this PR -->
 
-**Related Issue(s)**
+## Features
 
-<!-- Link any related issues or feature requests here -->
+- [ ] Feature 1
+- [ ] Feature 2
 
-Closes #
+## Changes
 
-**Changes Made**
+- [ ] Change 1
+- [ ] Change 2
 
-<!-- List all major changes made in this pull request -->
+## Fixes
 
--
--
-- **Checklist**
+- [ ] Bug fix 1
+- [ ] Bug fix 2
 
-- [ ] I have linked the related issue
-- [ ] I have run the tests and verified they pass
-- [ ] I have updated the documentation if needed
-- [ ] I have added or updated tests if applicable
-- [ ] I have followed the coding standards and guidelines
-- [ ] I have considered backward compatibility
+## Notes
 
-**Screenshots (if applicable)**
+1. **Known Issues**
+ <!-- List any known issues or limitations -->
 
-<!-- Include screenshots or terminal output to illustrate impact -->
-
-**Additional Notes**
-
-<!-- Add anything else reviewers should be aware of -->
+2. **TODOs**
+ <!-- List any pending tasks or follow-ups -->
