@@ -25,27 +25,64 @@ Features
 
 FusePyStarter is equipped with powerful tools and integrations that promote consistency, automation, and maintainability right from the start. These features are grouped into two key areas: **code quality & consistency** and **project automation & scalability**.
 
-**Code Quality & Consistency**
+Code Quality & Consistency
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `EditorConfig <https://sunil-fm.github.io/FusePyStarter/initialization/editorconfig.html>`_ — Ensures consistent indentation, line endings, and formatting across editors and IDEs.
-- `Ruff <https://sunil-fm.github.io/FusePyStarter/initialization/ruff.html>`_ — A lightning-fast Python linter and formatter.
-- `MyPy <https://sunil-fm.github.io/FusePyStarter/initialization/mypy.html>`_ — Performs static type checking to catch type-related bugs early.
-- `pre-commit <https://sunil-fm.github.io/FusePyStarter/initialization/pre-commit.html>`_ — Automates code quality checks via Git hooks.
+- `EditorConfig <https://sunil-fm.github.io/FusePyStarter/initialization/editorconfig.html>`_ - Ensures consistent indentation, line endings, and formatting across editors and IDEs.
+- `Ruff <https://sunil-fm.github.io/FusePyStarter/initialization/ruff.html>`_ - A lightning-fast Python linter and formatter.
+- `MyPy <https://sunil-fm.github.io/FusePyStarter/initialization/mypy.html>`_ - Performs static type checking to catch type-related bugs early.
+- `pre-commit <https://sunil-fm.github.io/FusePyStarter/initialization/pre-commit.html>`_ - Automates code quality checks via Git hooks.
 
-**Project Automation & Scalability**
+Project Automation & Scalability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `Dynaconf <https://sunil-fm.github.io/FusePyStarter/setup/dynaconf.html>`_ — Flexible and layered configuration management system.
-- `Fire <https://sunil-fm.github.io/FusePyStarter/setup/fire.html>`_ — Instantly generates CLI interfaces from your Python code.
-- `Logging <https://sunil-fm.github.io/FusePyStarter/setup/logging.html>`_ — Built-in, configurable logging setup for debugging and observability.
-- `Pytest <https://sunil-fm.github.io/FusePyStarter/setup/pytest.html>`_ — A mature and powerful testing framework.
-- `Coverage <https://ghimiresunil.github.io/PyFoundry/setup/coverage.html>`_ — Tracks code coverage during test runs.
-- `pytest-cov <https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html>`_ — Integrates `coverage` directly with `pytest`.
-- `Tox <https://sunil-fm.github.io/FusePyStarter/setup/tox.html>`_ — Automates testing across different Python environments and dependency sets.
+- `Dynaconf <https://sunil-fm.github.io/FusePyStarter/setup/dynaconf.html>`_ - Flexible and layered configuration management system.
+- `Fire <https://sunil-fm.github.io/FusePyStarter/setup/fire.html>`_ - Instantly generates CLI interfaces from your Python code.
+- `Logging <https://sunil-fm.github.io/FusePyStarter/setup/logging.html>`_ - Built-in, configurable logging setup for debugging and observability.
+- `Pytest <https://sunil-fm.github.io/FusePyStarter/setup/pytest.html>`_ - A mature and powerful testing framework.
+- `Coverage <https://ghimiresunil.github.io/PyFoundry/setup/coverage.html>`_ - Tracks code coverage during test runs.
+- `pytest-cov <https://sunil-fm.github.io/FusePyStarter/setup/pytest-cov.html>`_ - Integrates coverage directly with pytest.
+- `Tox <https://sunil-fm.github.io/FusePyStarter/setup/tox.html>`_ - Automates testing across different Python environments and dependency sets.
 
-These tools work together to provide a seamless development experience — whether you're building a quick prototype or a production-grade system.
+
+Who Should Use FusePyStarter?
+=============================
+
+FusePyStarter is designed for developers and teams who care about clean code, scalability, and production-readiness from day one:
+
+1. **Individual Developers** - Whether you're just getting started or have years of experience, FusePyStarter saves you time and enforces best practices out of the box.
+2. **Engineering Teams** - Establish a unified development workflow across your organization with standardized tooling and automation.
+3. **AI/ML Engineers & Data Scientists** - Prototype in notebooks, then transition seamlessly into robust, maintainable pipelines using FusePyStarter.
+4. **DevOps & Automation Enthusiasts** - Pre-wired for CI-ready workflows with tools like Tox, pre-commit, and coverage reporting.
+5. **Open Source Maintainers** - Create high-quality packages with consistent linting, testing, and documentation defaults.
+
+When Should You Use FusePyStarter?
+==================================
+
+Use FusePyStarter when you want your Python project to start strong, scale smoothly, and stay maintainable:
+
+1. **Launching a New Project** - Skip setup boilerplate and get a production-grade structure instantly.
+2. **Turning Notebooks into Codebases** - Perfect for converting research prototypes (Colab/Marimo) into tested, version-controlled modules.
+3. **Enforcing Code Quality from Day 1** - Static typing, linting, and Git hooks are already configured.
+4. **Building Scalable Applications** - Dynaconf, structured logging, and test frameworks make scaling effortless.
+5. **Collaborating in Teams** - Reduce onboarding friction with shared configs and tooling.
+6. **Automating Dev Workflows** - Integrated tools like Tox and pre-commit streamline testing and deployment.
+
+When *Not* to Use FusePyStarter
+===============================
+
+FusePyStarter is powerful-but not always the right fit. Skip it if:
+
+1. **You're Writing a One-Off Script** - For quick experiments or throwaway scripts, a full project scaffold may be overkill.
+2. **You’re Staying Inside Notebooks** - If your entire workflow lives in Colab or Jupyter, FusePyStarter adds unnecessary structure.
+3. **You Need a Non-Python Stack** - It’s built for Python projects only.
+4. **You Already Have Deep Customization** - If your team uses a heavily customized setup, integrating FusePyStarter might conflict with existing conventions.
+
+.. note::
+   **FusePyStarter bridges the gap between research and production.**
 
 Quick Start
------------
+============
 
 1. Install the latest framework for Python if you haven't already:
 
@@ -66,14 +103,14 @@ Quick Start
 Environment Examples
 --------------------
 
-Sample `.env.example` file for Dynaconf environment:
+Sample .env.example file for Dynaconf environment:
 
 .. code-block:: ini
 
    ENV_FOR_DYNACONF=dev
    DYNACONF_APP_NAME=FusePyStarter
 
-Sample `.secrets.example` file:
+Sample .secrets.example file:
 
 .. code-block:: ini
 
@@ -103,17 +140,17 @@ Sample `.secrets.example` file:
 
 .. note::
 
-   Replace ``.env.example`` with ``.env`` to configure your working environment, and replace
-   ``.secrets.example`` with ``.secrets.toml`` to store your actual secret values.
+   Replace `.env.example` with `.env` to configure your working environment, and replace
+   `.secrets.example` with `.secrets.toml` to store your actual secret values.
 
-   Make sure to exclude ``.secrets.toml`` from version control to keep your secrets secure.
+   Make sure to exclude `.secrets.toml` from version control to keep your secrets secure.
 
 Learn More
-----------
+==========
 
 For more detailed tutorials and documentation, visit the official `FusePyStarter Tutorial <https://sunil-fm.github.io/FusePyStarter/tutorial.html>`_.
 
 Contribute or Follow Along
---------------------------
+==========================
 
 FusePyStarter is evolving. Star the repository, follow development, or contribute by submitting issues and pull requests!
